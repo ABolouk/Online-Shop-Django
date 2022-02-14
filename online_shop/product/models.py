@@ -20,7 +20,7 @@ class DiscountCode(Discount):
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=150)
-    category = models.ForeignKey("self", null=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(to='self', null=True, on_delete=models.SET_NULL, related_name="categories")
 
 
 class Product(models.Model):
