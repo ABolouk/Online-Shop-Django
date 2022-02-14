@@ -9,3 +9,15 @@ class Product(models.Model):
     is_available = models.BooleanField(default=True)
     # discount = models.ManyToManyField(to="Discount")
     # category = models.ManyToManyField(to="Category")
+
+
+class Discount(models.Model):
+    PERCENTAGE_DISCOUNT = "PER"
+    VALUE_DISCOUNT = "VAL"
+    TYPES_OF_DISCOUNT = [
+        (PERCENTAGE_DISCOUNT, "Percentage Discount"),
+        (VALUE_DISCOUNT, "Value Discount"),
+    ]
+    type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
+    amount = models.CharField(max_length=20)
+    max_value = models.CharField(max_length=20)
