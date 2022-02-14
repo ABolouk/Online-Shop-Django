@@ -21,3 +21,9 @@ class Discount(models.Model):
     type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
     amount = models.CharField(max_length=20)
     max_value = models.CharField(max_length=20)
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=150)
+    category = models.ForeignKey("self", null=True)
