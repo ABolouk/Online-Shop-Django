@@ -5,15 +5,17 @@ from datetime import date
 
 class CustomerTest(TestCase):
     def setUp(self) -> None:
-        self.customer1 = Customer.objects.create(first_name="amir",
-                                                 last_name="bolouk",
-                                                 birth_date=date(1997, 5, 21))
-        self.customer2 = Customer.objects.create(first_name="akbar",
-                                                 last_name="babaii",
-                                                 birth_date=date(1961, 11, 2))
+        self.customer = Customer.objects.create(first_name="amir",
+                                                last_name="bolouk",
+                                                birth_date=date(1997, 5, 21))
 
-    def test1_customer1_(self):
-        pass
+    def test1_customer1_name(self):
+        self.assertEqual("amir", self.customer.first_name)
+        self.assertEqual("bolouk", self.customer.last_name)
+        self.assertEqual("amir bolouk", self.customer.full_name())
+        self.assertEqual(1997, self.customer.birth_date.year)
+        self.assertEqual(5, self.customer.birth_date.month)
+        self.assertEqual(21, self.customer.birth_date.day)
 
 
 class AddressTest(TestCase):
