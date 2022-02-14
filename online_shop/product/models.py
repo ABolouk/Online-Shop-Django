@@ -23,6 +23,10 @@ class Discount(models.Model):
     max_value = models.CharField(max_length=20)
 
 
+class DiscountCode(Discount):
+    code = models.CharField(max_length=30)
+
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=150)
