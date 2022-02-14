@@ -10,5 +10,5 @@ class Customer(models.Model):
 class Address(models.Model):
     province = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    details = models.TextField()
+    detail = models.TextField()
     customer = models.ForeignKey(to="Customer", on_delete=models.CASCADE)
