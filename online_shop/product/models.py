@@ -7,8 +7,8 @@ class Product(models.Model):
     price = models.CharField(max_length=20)
     detail = models.TextField()
     is_available = models.BooleanField(default=True)
-    # discount = models.ManyToManyField(to="Discount")
-    # category = models.ManyToManyField(to="Category")
+    discount = models.ManyToManyField(to="Discount")
+    category = models.ManyToManyField(to="Category")
 
 
 class Discount(models.Model):
