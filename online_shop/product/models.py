@@ -26,4 +26,4 @@ class Discount(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=150)
-    category = models.ForeignKey("self", null=True)
+    category = models.ForeignKey("self", null=True, on_delete=models.SET_NULL)
