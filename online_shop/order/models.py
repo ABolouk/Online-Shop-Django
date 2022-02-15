@@ -1,14 +1,14 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 
-from product.models import Product, DiscountCode
+from product.models import Product, OffCode
 from customer.models import Customer
 from core.utils import price_discount
 
 
 class Order(models.Model):
     customer = models.ForeignKey(to=Customer, on_delete=models.CASCADE)
-    discount_code = models.ForeignKey(to=DiscountCode, null=True, on_delete=models.SET_NULL)
+    discount_code = models.ForeignKey(to=OffCode, null=True, on_delete=models.SET_NULL)
 
     def total_price(self):
         price = 0
