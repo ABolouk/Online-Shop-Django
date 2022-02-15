@@ -1,8 +1,9 @@
 from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator
 
 from product.models import Product, DiscountCode
 from customer.models import Customer
+from core.utils import price_discount
 
 
 class Order(models.Model):
@@ -13,23 +14,10 @@ class Order(models.Model):
         price = 0
         for item in self.orderitem_set.all():
             price += int(item.price())
-        total_price = str(price)
-        if self.discount_code:
-            amount = int(self.discount_code.amount)
-            try:
-                max_value = int(self.discount_code.max_value)
-            except:
-                max_value = 0
-            if self.discount_code.type == "PER":
-                profit = int(price * amount / 100)
-                total_price = str((price - profit) if not max_value else (price - min(max_value, profit)))
-            else:
-                total_price = str((price - amount) if (price >= amount) else 0)
-        return total_price
-        # TODO Add discount method, or move final price method in product to core.utils and use it here
+        return price_discount(price, self.discount_code)
 
     def __str__(self):
-        return f"{self.customer} {self.price()}"
+        return f"{self.customer} {self.total_price()}"
 
 
 class OrderItem(models.Model):
