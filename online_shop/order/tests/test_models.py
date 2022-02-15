@@ -66,10 +66,10 @@ class OrderTest(OrderItemTest):
         self.assertIn(self.order_item2, self.order1.orderitem_set.all())
 
     def test8_order1_price(self):
-        self.assertEqual("68550000", self.order1.price())
+        self.assertEqual("68550000", self.order1.total_price())
 
     def test9_order2_price(self):
-        self.assertEqual("5500000", self.order2.price())
+        self.assertEqual("5500000", self.order2.total_price())
 
     def test10_order3_price(self):
-        self.assertEqual("875000", self.order3.price())
+        self.assertEqual("875000", self.order3.total_price())
