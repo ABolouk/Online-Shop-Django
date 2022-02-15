@@ -1,5 +1,5 @@
 from django.test import TestCase
-from product.models import Product, Discount, Category
+from product.models import Product, Discount, Category, Brand
 
 
 class DiscountTest(TestCase):
@@ -32,6 +32,14 @@ class CategoryTest(TestCase):
 
     def test4_category1_categories(self):
         self.assertTrue(len(self.category1.categories.all()) == 0)
+
+
+class BrandTest(TestCase):
+    def setUp(self) -> None:
+        self.brand = Brand.objects.create(name="ASUS")
+
+    def test5_brand_name(self):
+        self.assertEqual("ASUS", self.brand.name)
 
 
 class ProductTest(TestCase):
