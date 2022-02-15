@@ -26,5 +26,7 @@ class OrderItemTest(TestCase):
     def test1_order_item_details(self):
         self.assertEqual(2, self.order_item.number)
         self.assertEqual("Zephyrus", self.order_item.product.name)
-        self.assertEqual("112000000", self.order_item.price())
         self.assertEqual(self.order, self.order_item.order)
+
+    def test2_order_item_price(self):
+        self.assertEqual("112000000", self.order_item.price())
