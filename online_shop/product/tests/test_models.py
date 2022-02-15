@@ -68,6 +68,10 @@ class ProductTest(TestCase):
                                                detail="Halb Halb Halb", is_available=True,
                                                discount=self.discount3)
         self.product3.category.add(self.category3)
+        self.product4 = Product.objects.create(name="Adams", brand=self.brand2, price="10000",
+                                               detail="It's Gummy", is_available=True,
+                                               discount=self.discount3)
+        self.product3.category.add(self.category3)
 
     def test6_product1_details(self):
         self.assertEqual("Zephyrus", self.product1.name)
@@ -81,3 +85,15 @@ class ProductTest(TestCase):
     def test7_brand1_products(self):
         self.assertIn(self.product1, self.brand1.product_set.all())
         self.assertIn(self.product3, self.brand1.product_set.all())
+
+    def test8_product1_discount_price(self):
+        self.assertEqual("42000000", self.product1.discount_price())
+
+    def test9_product2_discount_price(self):
+        self.assertEqual("30425000", self.product2.discount_price())
+
+    def test10_product3_discount_price(self):
+        self.assertEqual("6480000", self.product3.discount_price())
+
+    def test11_product4_discount_price(self):
+        self.assertEqual("6000", self.product4.discount_price())
