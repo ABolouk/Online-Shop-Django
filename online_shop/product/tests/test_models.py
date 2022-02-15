@@ -23,14 +23,21 @@ class CategoryTest(TestCase):
                                                  description="Consists of every electronic device ever.")
         self.category3 = Category.objects.create(name="Laptop",
                                                  description="Laptops",
-                                                 category=self.category1)
+                                                 category=self.category2)
         self.category4 = Category.objects.create(name="Smart Phone",
-                                                 category=self.category1)
+                                                 category=self.category2)
 
     def test2_category3_detail(self):
         self.assertEqual("Laptop", self.category3.name)
         self.assertEqual("Laptops", self.category3.description)
         self.assertEqual(self.category1, self.category3.category)
+
+    def test3_category2_categories(self):
+        self.assertIn(self.category3, self.category2.categories.all())
+        self.assertIn(self.category4, self.category2.categories.all())
+
+    def test4_category1_categories(self):
+        self.assertTrue(len(self.category1.categories.all()) == 0)
 
 # class ProductTest(TestCase):
 #     def setUp(self) -> None:
