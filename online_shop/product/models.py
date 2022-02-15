@@ -48,8 +48,8 @@ class Product(models.Model):
             except:
                 max_value = 0
             if self.discount.type == "PER":
-                profit = price * amount
+                profit = int(price * amount / 100)
                 final_price = str((price - profit) if not max_value else (price - min(max_value, profit)))
             else:
-                final_price = str((price - amount) if price >= amount else 0)
+                final_price = str((price - amount) if (price >= amount) else 0)
         return final_price
