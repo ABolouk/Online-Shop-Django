@@ -77,3 +77,7 @@ class ProductTest(TestCase):
         self.assertFalse(self.product1.is_available)
         self.assertEqual(self.discount2, self.product1.discount)
         self.assertIn(self.category2, self.product1.category.all())
+
+    def test7_brand1_products(self):
+        self.assertIn(self.product1, self.brand1.product_set.all())
+        self.assertIn(self.product3, self.brand1.product_set.all())
