@@ -1,4 +1,5 @@
 from django.db import models
+from core.utils import price_discount
 
 
 class Discount(models.Model):
@@ -40,16 +41,4 @@ class Product(models.Model):
     category = models.ManyToManyField(to=Category)
 
     def final_price(self):
-        final_price = self.price
-        if self.discount:
-            amount, price = int(self.discount.amount), int(self.price)
-            try:
-                max_value = int(self.discount.max_value)
-            except:
-                max_value = 0
-            if self.discount.type == "PER":
-                profit = int(price * amount / 100)
-                final_price = str((price - profit) if not max_value else (price - min(max_value, profit)))
-            else:
-                final_price = str((price - amount) if (price >= amount) else 0)
-        return final_price
+        return price_discount(self.price, self.discount)
