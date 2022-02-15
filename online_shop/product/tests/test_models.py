@@ -27,6 +27,11 @@ class CategoryTest(TestCase):
         self.category4 = Category.objects.create(name="Smart Phone",
                                                  category=self.category1)
 
+    def test2_category3_detail(self):
+        self.assertEqual("Laptop", self.category3.name)
+        self.assertEqual("Laptops", self.category3.description)
+        self.assertEqual(self.category1, self.category3.category)
+
 # class ProductTest(TestCase):
 #     def setUp(self) -> None:
 #         self.discount1 = Discount.objects.create(type="VAL",
