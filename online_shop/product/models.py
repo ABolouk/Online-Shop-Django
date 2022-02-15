@@ -11,7 +11,13 @@ class Discount(models.Model):
     ]
     type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
     amount = models.CharField(max_length=20)
-    max_value = models.CharField(max_length=20, null=True)
+    max_value = models.CharField(max_length=20, null=True, blank=True)
+
+    def __str__(self):
+        price_tag = "%" if self.type == "PER" else "T"
+        max_tag = ", max=" + self.max_value + "T" if self.max_value else ""
+        message = f"{self.amount}{price_tag}{max_tag}"
+        return message
 
 
 class OffCode(models.Model):
@@ -24,7 +30,13 @@ class OffCode(models.Model):
     code = models.CharField(max_length=30)
     type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
     amount = models.CharField(max_length=20)
-    max_value = models.CharField(max_length=20, null=True)
+    max_value = models.CharField(max_length=20, null=True, blank=True)
+
+    def __str__(self):
+        price_tag = "%" if self.type == "PER" else "T"
+        max_tag = ", max=" + self.max_value + "T" if self.max_value else ""
+        message = f"{self.amount}{price_tag}{max_tag}"
+        return message
 
 
 class Category(models.Model):
