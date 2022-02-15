@@ -10,7 +10,7 @@ class Discount(models.Model):
     ]
     type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
     amount = models.CharField(max_length=20)
-    max_value = models.CharField(max_length=20)
+    max_value = models.CharField(max_length=20, null=True)
 
 
 class DiscountCode(Discount):
