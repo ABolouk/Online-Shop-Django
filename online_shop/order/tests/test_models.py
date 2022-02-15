@@ -36,6 +36,7 @@ class OrderItemTest(TestCase):
 
 class OrderTest(OrderItemTest):
     def setUp(self) -> None:
+        super().setUp()
         self.product1 = self.product
         self.product2 = Product.objects.create(name="ZenPhone", brand=self.brand, price="6500000", detail="Halb")
         self.product2.category.add(self.category)
@@ -68,4 +69,7 @@ class OrderTest(OrderItemTest):
         self.assertEqual("68550000", self.order1.price())
 
     def test9_order2_price(self):
-        self.assertEqual("", self.order2.price())
+        self.assertEqual("5500000", self.order2.price())
+
+    def test10_order3_price(self):
+        self.assertEqual("875000", self.order3.price())
