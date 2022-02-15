@@ -14,8 +14,17 @@ class Discount(models.Model):
     max_value = models.CharField(max_length=20, null=True)
 
 
-class DiscountCode(Discount):
+class OffCode(models.Model):
+    PERCENTAGE_DISCOUNT = "PER"
+    VALUE_DISCOUNT = "VAL"
+    TYPES_OF_DISCOUNT = [
+        (PERCENTAGE_DISCOUNT, "Percentage Discount"),
+        (VALUE_DISCOUNT, "Value Discount"),
+    ]
     code = models.CharField(max_length=30)
+    type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
+    amount = models.CharField(max_length=20)
+    max_value = models.CharField(max_length=20, null=True)
 
 
 class Category(models.Model):
