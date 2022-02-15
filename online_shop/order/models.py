@@ -13,7 +13,19 @@ class Order(models.Model):
         price = 0
         for item in self.orderitem_set.all():
             price += int(item.price())
-
+        total_price = str(price)
+        if self.discount_code:
+            amount = int(self.discount_code.amount)
+            try:
+                max_value = int(self.discount_code.max_value)
+            except:
+                max_value = 0
+            if self.discount_code.type == "PER":
+                profit = int(price * amount / 100)
+                total_price = str((price - profit) if not max_value else (price - min(max_value, profit)))
+            else:
+                total_price = str((price - amount) if (price >= amount) else 0)
+        return total_price
         # TODO Add discount method, or move final price method in product to core.utils and use it here
 
     def __str__(self):
