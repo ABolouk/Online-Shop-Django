@@ -32,7 +32,7 @@ class Brand(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
-    brand = models.CharField(max_length=100)
+    brand = models.ForeignKey(to=Brand, on_delete=models.CASCADE)
     price = models.CharField(max_length=20)
     detail = models.TextField()
     is_available = models.BooleanField(default=True)
