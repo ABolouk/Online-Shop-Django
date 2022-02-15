@@ -59,10 +59,13 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     brand = models.ForeignKey(to=Brand, on_delete=models.CASCADE)
     price = models.CharField(max_length=20)
-    detail = models.TextField()
+    detail = models.TextField(null=True, blank=True)
     is_available = models.BooleanField(default=True)
-    discount = models.ForeignKey(to=Discount, null=True, on_delete=models.SET_NULL)
-    category = models.ManyToManyField(to=Category)
+    discount = models.ForeignKey(to=Discount, null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ManyToManyField(to=Category, blank=True)
 
     def final_price(self):
         return price_discount(self.price, self.discount)
+
+    def __str__(self):
+        return f"{self.name} ({self.price})"
