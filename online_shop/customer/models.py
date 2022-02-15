@@ -16,5 +16,8 @@ class Customer(models.Model):
 class Address(models.Model):
     province = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    detail = models.TextField()
+    detail = models.TextField(null=True, blank=True)
     customer = models.ForeignKey(to="Customer", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.province}, {self.city}"
