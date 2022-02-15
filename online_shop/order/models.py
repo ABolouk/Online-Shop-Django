@@ -14,3 +14,9 @@ class OrderItem(models.Model):
     order = models.ForeignKey(to=Order, on_delete=models.CASCADE)
     product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
     number = models.IntegerField(validators=[MinValueValidator(1), ])
+
+    def price(self):
+        return str(self.number * int(self.product.price))
+
+    def __str__(self):
+        return f"{self.number} {self.product.name}"
