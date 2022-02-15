@@ -39,7 +39,7 @@ class Product(models.Model):
     discount = models.ForeignKey(to=Discount, null=True, on_delete=models.SET_NULL)
     category = models.ManyToManyField(to=Category)
 
-    def discount_price(self):
+    def final_price(self):
         final_price = self.price
         if self.discount:
             amount, price = int(self.discount.amount), int(self.price)

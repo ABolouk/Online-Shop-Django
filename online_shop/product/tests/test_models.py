@@ -87,13 +87,13 @@ class ProductTest(TestCase):
         self.assertIn(self.product3, self.brand1.product_set.all())
 
     def test8_product1_discount_price(self):
-        self.assertEqual("42000000", self.product1.discount_price())
+        self.assertEqual("42000000", self.product1.final_price())
 
     def test9_product2_discount_price(self):
-        self.assertEqual("30425000", self.product2.discount_price())
+        self.assertEqual("30425000", self.product2.final_price())
 
     def test10_product3_discount_price(self):
-        self.assertEqual("6480000", self.product3.discount_price())
+        self.assertEqual("6480000", self.product3.final_price())
 
     def test11_product4_discount_price(self):
-        self.assertEqual("6000", self.product4.discount_price())
+        self.assertEqual("6000", self.product4.final_price())
