@@ -58,11 +58,22 @@ class ProductTest(TestCase):
 
         self.product1 = Product.objects.create(name="Zephyrus", brand=self.brand1, price="56000000",
                                                detail="Blah Blah Blah", is_available=False,
-                                               discount=self.discount2, category=self.category2)
+                                               discount=self.discount2)
+        self.product1.category.add(self.category2)
         self.product2 = Product.objects.create(name="XPS 13", brand=self.brand2, price="31425000",
                                                detail="1Blah1 1Blah1 1Blah1", is_available=True,
-                                               discount=self.discount1, category=self.category2)
+                                               discount=self.discount1)
+        self.product2.category.add(self.category2)
         self.product3 = Product.objects.create(name="ZenPhone", brand=self.brand1, price="6500000",
                                                detail="Halb Halb Halb", is_available=True,
-                                               discount=self.discount3, category=self.category3)
+                                               discount=self.discount3)
+        self.product3.category.add(self.category3)
 
+    def test6_product1_details(self):
+        self.assertEqual("Zephyrus", self.product1.name)
+        self.assertEqual("ASUS", self.product1.brand.name)
+        self.assertEqual("56000000", self.product1.price)
+        self.assertEqual("Blah Blah Blah", self.product1.detail)
+        self.assertFalse(self.product1.is_available)
+        self.assertEqual(self.discount2, self.product1.discount)
+        self.assertIn(self.category2, self.product1.category.all())
