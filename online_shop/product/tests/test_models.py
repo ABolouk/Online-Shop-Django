@@ -53,12 +53,16 @@ class ProductTest(TestCase):
         self.category2 = Category.objects.create(name="Laptop", description="Laptops", category=self.category1)
         self.category3 = Category.objects.create(name="Smart Phone", category=self.category1)
 
-        self.product1 = Product.objects.create(name="Zephyrus", brand="ASUS", price="56000000",
-                                               detail="Blah Blah Blah", is_available=True,
+        self.brand1 = Brand.objects.create(name="ASUS")
+        self.brand2 = Brand.objects.create(name="DELL")
+
+        self.product1 = Product.objects.create(name="Zephyrus", brand=self.brand1, price="56000000",
+                                               detail="Blah Blah Blah", is_available=False,
                                                discount=self.discount2, category=self.category2)
-        self.product2 = Product.objects.create(name="XPS 13", brand="DELL", price="31425000",
+        self.product2 = Product.objects.create(name="XPS 13", brand=self.brand2, price="31425000",
                                                detail="1Blah1 1Blah1 1Blah1", is_available=True,
                                                discount=self.discount1, category=self.category2)
-        self.product3 = Product.objects.create(name="POCO X3 Pro", brand="Xiaomi", price="6500000",
-                                               detail="Blah Blah Blah", is_available=True,
+        self.product3 = Product.objects.create(name="ZenPhone", brand=self.brand1, price="6500000",
+                                               detail="Halb Halb Halb", is_available=True,
                                                discount=self.discount3, category=self.category3)
+
