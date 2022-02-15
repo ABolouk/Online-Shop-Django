@@ -38,3 +38,18 @@ class Product(models.Model):
     is_available = models.BooleanField(default=True)
     discount = models.ForeignKey(to=Discount, null=True, on_delete=models.SET_NULL)
     category = models.ManyToManyField(to=Category)
+
+    def discount_price(self):
+        final_price = self.price
+        if self.discount:
+            amount, price = int(self.discount.amount), int(self.price)
+            try:
+                max_value = int(self.discount.max_value)
+            except:
+                max_value = 0
+            if self.discount.type == "PER":
+                profit = price * amount
+                final_price = str((price - profit) if not max_value else (price - min(max_value, profit)))
+            else:
+                final_price = str((price - amount) if price >= amount else 0)
+        return final_price
