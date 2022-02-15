@@ -29,5 +29,5 @@ class Product(models.Model):
     price = models.CharField(max_length=20)
     detail = models.TextField()
     is_available = models.BooleanField(default=True)
-    discount = models.ManyToManyField(to=Discount)
+    discount = models.ForeignKey(to=Discount, null=True, on_delete=models.SET_NULL)
     category = models.ManyToManyField(to=Category)
