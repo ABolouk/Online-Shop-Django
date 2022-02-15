@@ -50,5 +50,5 @@ class AddressTest(TestCase):
         self.assertEqual("", self.address3.detail)
 
     def test5_customer1_addresses(self):
-        # self.assertIn(,self.customer1.address_set)
-        print(self.customer1.address_set)
+        self.assertIn(self.address2, self.customer1.address_set.all())
+        self.assertIn(self.address3, self.customer1.address_set.all())
