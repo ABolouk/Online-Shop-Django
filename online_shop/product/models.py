@@ -59,6 +59,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     brand = models.ForeignKey(to=Brand, on_delete=models.CASCADE)
     price = models.CharField(max_length=20)
+    image = models.ImageField(upload_to="product_images", null=True, blank=True)
     detail = models.TextField(null=True, blank=True)
     is_available = models.BooleanField(default=True)
     discount = models.ForeignKey(to=Discount, null=True, blank=True, on_delete=models.SET_NULL)
