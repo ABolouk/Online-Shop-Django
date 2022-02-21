@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class Customer(models.Model):
@@ -11,6 +12,10 @@ class Customer(models.Model):
 
     def __str__(self):
         return self.full_name()
+
+    class Meta:
+        verbose_name = _("Customer")
+        verbose_name_plural = _("Customers")
 
 
 class Address(models.Model):
