@@ -7,7 +7,10 @@
 {% block content %}
     <ul>
         {% for order in orders %}
-            <li><a href="{% url "order-item" order.id %}">{{ order }}</a></li>
+            <li><a href="{% url "order-items" order.id %}">{{ order }}</a></li>
+            <ul>
+                <li>{% translate "Paid: " %}{{ order.is_paid }}</li>
+            </ul>
         {% endfor %}
     </ul>
 {% endblock %}
