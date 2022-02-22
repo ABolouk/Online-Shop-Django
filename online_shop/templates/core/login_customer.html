@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Login Customer" %}{% endblock %}
+
+{% block content %}
+    <form method="POST" action="{% url "login" %}">
+    {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit">{% translate "login" %}</button>
+    </form>
+{% endblock %}
+
