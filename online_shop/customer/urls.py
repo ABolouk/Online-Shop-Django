@@ -7,5 +7,5 @@ urlpatterns = [
     # path("order_status/", views.OrderStatusView.as_view(), name="order-status"),
     path("address/", views.AddressView.as_view(), name="address"),
     path("profile/", views.ProfileView.as_view(), name="profile"),
-    # path("profile/update/", views.OrderHistory.as_view(), name="profile-update"),
+    path("profile/update/", views.ProfileUpdateView.as_view(), name="profile-update"),
 ]
