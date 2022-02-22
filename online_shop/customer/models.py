@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from core.models import User, BaseModel
+
 
 class Customer(models.Model):
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    birth_date = models.DateField()
 
     def full_name(self):
         return f"{self.first_name} {self.last_name}"
@@ -16,6 +18,9 @@ class Customer(models.Model):
     class Meta:
         verbose_name = _("Customer")
         verbose_name_plural = _("Customers")
+        # permissions = [
+        #     ("folan","folan"),
+        # ]
 
 
 class Address(models.Model):
