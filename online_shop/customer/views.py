@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse
 
 from django.views import View
-from customer.models import Customer
+from customer.models import Customer, Address
 
 
 class ProfileView(PermissionRequiredMixin, View):
@@ -26,4 +26,10 @@ class AddressView(PermissionRequiredMixin, View):
     permission_required = "customer.being_customer"
 
     def get(self, request):
-        pass
+        customer = request.user.customer
+        addresses = Address.objects.filter(customer=customer)
+        context = {
+            "addresses": addresses,
+            "customer": customer,
+        }
+        return render(request=request, template_name="customer/customer_address.html", context=context)
