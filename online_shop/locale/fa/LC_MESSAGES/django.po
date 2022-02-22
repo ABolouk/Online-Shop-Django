@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 03:59+0000\n"
+"POT-Creation-Date: 2022-02-22 12:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,9 +22,35 @@ msgstr ""
 msgid "Core"
 msgstr "هسته"
 
+#: core/forms.py:24
+msgid "Phone"
+msgstr "تلفن"
+
+#: core/forms.py:25 customer/forms.py:28
+#, fuzzy
+#| msgid "Change password"
+msgid "Password"
+msgstr "تغییر رمز"
+
 #: customer/apps.py:8 customer/models.py:22
 msgid "Customer"
 msgstr "مشتری"
+
+#: customer/forms.py:15
+msgid "First Name"
+msgstr "نام"
+
+#: customer/forms.py:16
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: customer/forms.py:27
+msgid "Phone Number"
+msgstr ""
+
+#: customer/forms.py:32
+msgid "Example: 09123456789"
+msgstr "مثال: ۰۹۱۲۳۴۵۶۷۸۹"
 
 #: customer/models.py:23
 msgid "Customers"
@@ -171,6 +197,48 @@ msgstr "این را در فایل ستینگ کپی کنید تا تغییرات
 #: templates/admin/base.html:353
 msgid "Close"
 msgstr "بستن"
+
+#: templates/core/customer_register.html:5
+#, fuzzy
+#| msgid "Customer"
+msgid "Register Customer"
+msgstr "مشتری"
+
+#: templates/core/customer_register.html:13
+msgid "Register"
+msgstr "ثبت"
+
+#: templates/core/login_customer.html:5
+#, fuzzy
+#| msgid "Customer"
+msgid "Login Customer"
+msgstr "مشتری"
+
+#: templates/core/login_customer.html:13
+msgid "login"
+msgstr "ورود"
+
+#: templates/customer/customer_profile.html:6
+#, fuzzy
+#| msgid "Customer"
+msgid "Customer Profile"
+msgstr "مشتری"
+
+#: templates/customer/customer_profile.html:10
+msgid "First Name: "
+msgstr "نام: "
+
+#: templates/customer/customer_profile.html:11
+msgid "Last Name: "
+msgstr "نام خانوادگی: "
+
+#: templates/customer/customer_profile.html:12
+msgid "Phone Number: "
+msgstr "شماره تلفن: "
+
+#: templates/customer/customer_profile.html:13
+msgid "Email: "
+msgstr "ایمیل: "
 
 #~ msgid "Welcome,"
 #~ msgstr "خوش آمدید،"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 03:59+0000\n"
+"POT-Creation-Date: 2022-02-22 12:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,32 @@ msgstr ""
 msgid "Core"
 msgstr ""
 
+#: core/forms.py:24
+msgid "Phone"
+msgstr ""
+
+#: core/forms.py:25 customer/forms.py:28
+msgid "Password"
+msgstr ""
+
 #: customer/apps.py:8 customer/models.py:22
 msgid "Customer"
+msgstr ""
+
+#: customer/forms.py:15
+msgid "First Name"
+msgstr ""
+
+#: customer/forms.py:16
+msgid "Last Name"
+msgstr ""
+
+#: customer/forms.py:27
+msgid "Phone Number"
+msgstr ""
+
+#: customer/forms.py:32
+msgid "Example: 09123456789"
 msgstr ""
 
 #: customer/models.py:23
@@ -168,4 +192,40 @@ msgstr ""
 
 #: templates/admin/base.html:353
 msgid "Close"
+msgstr ""
+
+#: templates/core/customer_register.html:5
+msgid "Register Customer"
+msgstr ""
+
+#: templates/core/customer_register.html:13
+msgid "Register"
+msgstr ""
+
+#: templates/core/login_customer.html:5
+msgid "Login Customer"
+msgstr ""
+
+#: templates/core/login_customer.html:13
+msgid "login"
+msgstr ""
+
+#: templates/customer/customer_profile.html:6
+msgid "Customer Profile"
+msgstr ""
+
+#: templates/customer/customer_profile.html:10
+msgid "First Name: "
+msgstr ""
+
+#: templates/customer/customer_profile.html:11
+msgid "Last Name: "
+msgstr ""
+
+#: templates/customer/customer_profile.html:12
+msgid "Phone Number: "
+msgstr ""
+
+#: templates/customer/customer_profile.html:13
+msgid "Email: "
 msgstr ""
