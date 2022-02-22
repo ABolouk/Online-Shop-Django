@@ -5,6 +5,9 @@ from core.models import User, BaseModel
 
 
 class Customer(models.Model):
+    """
+        # TODO: Add docstring
+    """
     user = models.OneToOneField(to=User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -24,6 +27,9 @@ class Customer(models.Model):
 
 
 class Address(BaseModel):
+    """
+        # TODO: Add docstring
+    """
     customer = models.ForeignKey(to="Customer", null=True, on_delete=models.SET_NULL)
     province = models.CharField(max_length=100)  # TODO: Add choices for each province in Iran.
     city = models.CharField(max_length=100)  # TODO: Add choices for each city of selected province.
