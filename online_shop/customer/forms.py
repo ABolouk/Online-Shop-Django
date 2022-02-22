@@ -17,7 +17,7 @@ class CustomerRegisterForm(forms.ModelForm):
         }
 
 
-class UserForm(forms.ModelForm):
+class UserForm(forms.ModelForm):  # TODO: add re-enter password
     class Meta:
         model = User
         # fields = "__all__"
