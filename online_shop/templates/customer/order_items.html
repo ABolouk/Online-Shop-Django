@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Order " %}{{ order.id }}{% translate "itmes" %}{% endblock %}
+{% block content %}
+    <p>{% translate "Address: " %}{{ order.address }}</p>
+    <ul>
+        {% for order_item in order.orderitem_set.all %}
+            <li>{{ order_item.number }}{% translate " of " %}{{ order_item.product }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
