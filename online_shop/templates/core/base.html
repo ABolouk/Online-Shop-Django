@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,5 +12,8 @@
 {% block content %}
 
 {% endblock %}
+
+<p>{% translate "Back to dashboard for " %}<a href="{% url "profile" %}">{{ customer }}</a></p>
+
 </body>
 </html>

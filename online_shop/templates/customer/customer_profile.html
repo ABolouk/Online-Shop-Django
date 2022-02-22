@@ -17,6 +17,9 @@
     <form action="{% url "address" %}" method="GET">
         <button type="submit">{% translate "Addresses" %}</button>
     </form><br>
+    <form action="{% url "order-history" %}" method="GET">
+        <button type="submit">{% translate "Orders" %}</button>
+    </form><br>
     <form action="{% url "logout-customer" %}" method="GET">
         <button type="submit">{% translate "Logout" %}</button>
     </form><br>

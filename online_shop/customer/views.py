@@ -9,6 +9,7 @@ from django.views.generic import UpdateView
 from core.models import User
 from customer.models import Customer, Address
 from customer.forms import ProfileForm
+from order.models import Order
 
 
 class ProfileView(PermissionRequiredMixin, View):
@@ -66,3 +67,16 @@ class ProfileUpdateView(PermissionRequiredMixin, View):
         user.password = data['password']
         user.save()
         return HttpResponseRedirect(reverse("profile"))
+
+
+class OrderHistoryView(PermissionRequiredMixin, View):
+    permission_required = "customer.being_customer"
+
+    def get(self, request):
+        user = request.user
+        customer = user.customer
+        orders = Order.objects.filter(customer=customer)
+        context = {
+            "orders": orders,
+        }
+        return render(request=request, template_name="customer/customer_order_history.html", context=context)
