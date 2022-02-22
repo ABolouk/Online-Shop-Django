@@ -16,7 +16,7 @@ class Customer(models.Model):
     #     return f"{self.first_name} {self.last_name}"
 
     def __str__(self):
-        return self.user.phone
+        return f"{self.user.first_name} {self.user.last_name}"
 
     class Meta:
         verbose_name = _("Customer")
