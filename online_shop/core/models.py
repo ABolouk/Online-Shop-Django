@@ -15,6 +15,15 @@ class User(AbstractUser):
     USERNAME_FIELD = "phone"
 
 
+class BaseManager(models.Manager):
+
+    def full_archive(self):
+        return super().get_queryset()
+
+    def get_queryset(self):
+        return super().get_queryset().filter(is_delete=False)
+
+
 class BaseModel(models.Model):
     class Meta:
         abstract = True
