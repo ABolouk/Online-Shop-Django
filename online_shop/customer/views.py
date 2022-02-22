@@ -4,7 +4,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse
 
 from django.views import View
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, ListView, DetailView
 
 from core.models import User
 from customer.models import Customer, Address
@@ -80,3 +80,9 @@ class OrderHistoryView(PermissionRequiredMixin, View):
             "orders": orders,
         }
         return render(request=request, template_name="customer/customer_order_history.html", context=context)
+
+
+class OrderHistoryListView(PermissionRequiredMixin, DetailView):
+    permission_required = "customer.being_customer"
+    model = Order
+    template_name = "customer/order_items.html"
