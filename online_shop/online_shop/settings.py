@@ -256,3 +256,5 @@ MEDIA_ROOT = "media"
 MEDIA_URL = "/shop-media/"
 
 AUTH_USER_MODEL = "core.User"
+
+LOGIN_REDIRECT_URL = "customer:profile"
