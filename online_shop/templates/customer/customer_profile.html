@@ -6,9 +6,15 @@
 {% block title %}{% translate "Customer Profile" %}{% endblock %}
 {% block content %}
     <div>
-        <p>{{ customer.user.phone }}</p>
-        <p>{{ customer.user.password }}</p>
-        {#<p>{{ customer.user.first }}</p>#}
-        {#<p>{{ customer.user.password }}</p>#}
+        <p>{% translate "First Name: " %}{{ customer.user.first_name }}</p>
+        <p>{% translate "Last Name: " %}{{ customer.user.last_name }}</p>
+        <p>{% translate "Phone Number: " %}{{ customer.user.phone }}</p>
+        <p>{% translate "Email: " %}{{ customer.user.email }}</p>
     </div>
+{#    <form action="{% url "profile-update" %}" method="GET">#}
+{#        <button type="submit">{% translate "Edit Profile" %}</button>#}
+{#    </form>#}
+    <form action="{% url "logout-customer" %}" method="GET">
+        <button type="submit">{% translate "Logout" %}</button>
+    </form>
 {% endblock %}
