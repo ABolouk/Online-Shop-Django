@@ -25,9 +25,12 @@ class BaseManager(models.Manager):
 
 
 class BaseModel(models.Model):
-    is_delete = models.BooleanField(default=False, editable=False, db_index=True)
+    class Meta:
+        abstract = True
 
     objects = BaseManager
+
+    is_delete = models.BooleanField(default=False, editable=False, db_index=True)
 
     def delete(self, using=None, keep_parents=False):
         self.is_delete = True
@@ -36,6 +39,3 @@ class BaseModel(models.Model):
     def restore(self):
         self.is_delete = False
         self.save()
-
-    class Meta:
-        abstract = True
