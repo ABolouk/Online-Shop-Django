@@ -36,3 +36,16 @@ class UserForm(forms.ModelForm):  # TODO: add re-enter password
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
         return check_phone(phone)
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["first_name", "last_name", "phone", "password"]
+
+        labels = {
+            'first_name': _("First Name"),
+            'last_name': _("Last Name"),
+            'phone': _("Phone Number"),
+            'password': _("Password"),
+        }
