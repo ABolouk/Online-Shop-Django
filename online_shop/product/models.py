@@ -57,11 +57,15 @@ class Category(BaseModel):
         verbose_name_plural = _("Categories")
 
 
-class Brand(models.Model):
+class Brand(BaseModel):
     name = models.CharField(max_length=150)
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name =_("Brand")
+        verbose_name_plural = _("Brands")
 
 
 class Product(models.Model):
