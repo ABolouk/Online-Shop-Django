@@ -9,21 +9,21 @@ class Customer(models.Model):
         # TODO: Add docstring
     """
     user = models.OneToOneField(to=User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
+    # first_name = models.CharField(max_length=100)
+    # last_name = models.CharField(max_length=100)
 
-    def full_name(self):
-        return f"{self.first_name} {self.last_name}"
+    # def full_name(self):
+    #     return f"{self.first_name} {self.last_name}"
 
     def __str__(self):
-        return self.full_name()
+        return self.user.phone
 
     class Meta:
         verbose_name = _("Customer")
         verbose_name_plural = _("Customers")
-        # permissions = [
-        #     ("folan","folan"),
-        # ]
+        permissions = [
+            ("being_customer", "is a customer."),
+        ]
 
 
 class Address(BaseModel):
