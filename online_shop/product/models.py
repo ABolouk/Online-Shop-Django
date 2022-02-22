@@ -28,27 +28,33 @@ class AbstractDiscount(BaseModel):
 
 
 class Discount(AbstractDiscount):
+    name = models.CharField(max_length=100, help_text=_("A name for discount."))
+
     class Meta:
         verbose_name = _("Discount")
         verbose_name_plural = _("Discounts")
 
-    name = models.CharField(max_length=100, help_text=_("A name for discount."))
-
 
 class OffCode(AbstractDiscount):
+    code = models.CharField(max_length=30, help_text=_("Code that validates the discount."))
+
     class Meta:
         verbose_name = _("Discount Code")
         verbose_name_plural = _("Discount Codes")
 
-    code = models.CharField(max_length=30, help_text=_("Code that validates the discount."))
 
-
-class Category(models.Model):
+class Category(BaseModel):
     name = models.CharField(max_length=100)
-    category = models.ForeignKey(to='self', null=True, blank=True, on_delete=models.SET_NULL, related_name="categories")
+    parent_category = models.ForeignKey(to='self', null=True, blank=True, on_delete=models.SET_NULL,
+                                        related_name="categories",
+                                        help_text=_("You can add this category under another one."))
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
 
 
 class Brand(models.Model):
