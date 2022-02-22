@@ -64,11 +64,11 @@ class Brand(BaseModel):
         return self.name
 
     class Meta:
-        verbose_name =_("Brand")
+        verbose_name = _("Brand")
         verbose_name_plural = _("Brands")
 
 
-class Product(models.Model):
+class Product(BaseModel):
     name = models.CharField(max_length=100)
     brand = models.ForeignKey(to=Brand, on_delete=models.CASCADE)
     price = models.CharField(max_length=20)
@@ -76,10 +76,14 @@ class Product(models.Model):
     detail = models.TextField(null=True, blank=True)
     is_available = models.BooleanField(default=True)
     discount = models.ForeignKey(to=Discount, null=True, blank=True, on_delete=models.SET_NULL)
-    category = models.ManyToManyField(to=Category, blank=True)
+    category = models.ForeignKey(to=Category, null=True, blank=True, on_delete=models.SET_NULL)
 
     def final_price(self):
         return price_discount(self.price, self.discount)
 
     def __str__(self):
         return f"{self.name} ({self.price})"
+
+    class Meta:
+        verbose_name = _("Product")
+        verbose_name_plural = _("Products")
