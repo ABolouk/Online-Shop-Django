@@ -14,6 +14,9 @@
 {#    <form action="{% url "profile-update" %}" method="GET">#}
 {#        <button type="submit">{% translate "Edit Profile" %}</button>#}
 {#    </form>#}
+    <form action="{% url "address" %}" method="GET">
+        <button type="submit">{% translate "Addresses" %}</button>
+    </form>
     <form action="{% url "logout-customer" %}" method="GET">
         <button type="submit">{% translate "Logout" %}</button>
     </form>
