@@ -23,11 +23,15 @@ class Customer(models.Model):
         # ]
 
 
-class Address(models.Model):
-    province = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
+class Address(BaseModel):
+    customer = models.ForeignKey(to="Customer", null=True, on_delete=models.SET_NULL)
+    province = models.CharField(max_length=100)  # TODO: Add choices for each province in Iran.
+    city = models.CharField(max_length=100)  # TODO: Add choices for each city of selected province.
     detail = models.TextField(null=True, blank=True)
-    customer = models.ForeignKey(to="Customer", on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.province}, {self.city}"
+
+    class Meta:
+        verbose_name = _("Address")
+        verbose_name_plural = _("Addresses")
