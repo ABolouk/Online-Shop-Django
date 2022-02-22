@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Register Customer" %}{% endblock %}
+
+{% block content %}
+    <form method="POST" action="">
+        <table>
+            {{ user_form.as_table }}
+            {{ customer_form.as_table }}
+        </table>
+        <button type="submit">submit</button>
+    </form>
+{% endblock %}
