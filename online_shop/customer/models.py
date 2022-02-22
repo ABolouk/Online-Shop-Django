@@ -36,7 +36,7 @@ class Address(BaseModel):
     detail = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return f"{self.province}, {self.city}"
+        return f"{self.province}, {self.city}, {self.detail}"
 
     class Meta:
         verbose_name = _("Address")
