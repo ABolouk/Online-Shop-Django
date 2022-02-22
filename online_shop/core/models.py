@@ -13,3 +13,18 @@ class User(AbstractUser):
 
     phone = models.CharField(max_length=15, unique=True)
     USERNAME_FIELD = "phone"
+
+
+class BaseModel(models.Model):
+    class Meta:
+        abstract = True
+
+    is_delete = models.BooleanField(default=False, editable=False, db_index=True)
+
+    def delete(self, using=None, keep_parents=False):
+        self.is_delete = True
+        self.save(using=using)
+
+    def restore(self):
+        self.is_delete = False
+        self.save()
