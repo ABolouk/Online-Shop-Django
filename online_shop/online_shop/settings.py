@@ -257,4 +257,5 @@ MEDIA_URL = "/shop-media/"
 
 AUTH_USER_MODEL = "core.User"
 
+LOGIN_URL = "login-customer"
 LOGIN_REDIRECT_URL = "customer:profile"
