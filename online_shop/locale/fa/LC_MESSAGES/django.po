@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 03:30+0000\n"
+"POT-Creation-Date: 2022-02-22 03:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: customer/models.py:22
+#: core/apps.py:8
+msgid "Core"
+msgstr "هسته"
+
+#: customer/apps.py:8 customer/models.py:22
 msgid "Customer"
 msgstr "مشتری"
 
@@ -42,7 +46,7 @@ msgstr "فروشگاه آنلاین"
 msgid "Amirhossein Bolouk Asli"
 msgstr "امیرحسین بلوک اصلی"
 
-#: order/models.py:27
+#: order/apps.py:8 order/models.py:27
 msgid "Order"
 msgstr "سفارش"
 
@@ -57,6 +61,10 @@ msgstr "آیتم سفارش"
 #: order/models.py:44
 msgid "Order Items"
 msgstr "آیتم‌های سفارش"
+
+#: product/apps.py:8 product/models.py:88
+msgid "Product"
+msgstr "محصول"
 
 #: product/models.py:16
 msgid "Percentage Discount"
@@ -110,34 +118,65 @@ msgstr "برند"
 msgid "Brands"
 msgstr "برندها"
 
-#: product/models.py:88
-msgid "Product"
-msgstr "محصول"
-
 #: product/models.py:89
 msgid "Products"
 msgstr "محصولات"
 
-#: templates/admin-customized/base.html:52
-msgid "Welcome,"
-msgstr "خوش آمدید،"
+#: templates/admin/base.html:95
+msgid "Search"
+msgstr "جستجو"
 
-#: templates/admin-customized/base.html:57
-msgid "View site"
-msgstr ""
+#: templates/admin/base.html:155
+#, fuzzy
+#| msgid "Discount"
+msgid "Account"
+msgstr "تخفیف"
 
-#: templates/admin-customized/base.html:62
-msgid "Documentation"
-msgstr "مستندسازی"
-
-#: templates/admin-customized/base.html:66
+#: templates/admin/base.html:158
 msgid "Change password"
 msgstr "تغییر رمز"
 
-#: templates/admin-customized/base.html:68
+#: templates/admin/base.html:162
 msgid "Log out"
 msgstr "خارج شدن"
 
-#: templates/admin-customized/base.html:79
-msgid "Home"
-msgstr "خانه"
+#: templates/admin/base.html:173
+msgid "See Profile"
+msgstr "دیدن پروفایل"
+
+#: templates/admin/base.html:213
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: templates/admin/base.html:326
+msgid "Jazzmin version"
+msgstr "ورژن جزمین"
+
+#: templates/admin/base.html:329
+msgid "Copyright"
+msgstr "کپی رایت"
+
+#: templates/admin/base.html:329
+msgid "All rights reserved."
+msgstr "تمامی حقوق محفوض است."
+
+#: templates/admin/base.html:345
+msgid "UI Configuration"
+msgstr "تنظیم رابط کاربری"
+
+#: templates/admin/base.html:349
+msgid "Copy this info your settings file to persist these UI changes"
+msgstr "این را در فایل ستینگ کپی کنید تا تغییرات اعمال شده نهایی شود."
+
+#: templates/admin/base.html:353
+msgid "Close"
+msgstr "بستن"
+
+#~ msgid "Welcome,"
+#~ msgstr "خوش آمدید،"
+
+#~ msgid "Documentation"
+#~ msgstr "مستندسازی"
+
+#~ msgid "Home"
+#~ msgstr "خانه"

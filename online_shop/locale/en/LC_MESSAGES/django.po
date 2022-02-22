@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 03:30+0000\n"
+"POT-Creation-Date: 2022-02-22 03:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: customer/models.py:22
+#: core/apps.py:8
+msgid "Core"
+msgstr ""
+
+#: customer/apps.py:8 customer/models.py:22
 msgid "Customer"
 msgstr ""
 
@@ -42,7 +46,7 @@ msgstr ""
 msgid "Amirhossein Bolouk Asli"
 msgstr ""
 
-#: order/models.py:27
+#: order/apps.py:8 order/models.py:27
 msgid "Order"
 msgstr ""
 
@@ -56,6 +60,10 @@ msgstr ""
 
 #: order/models.py:44
 msgid "Order Items"
+msgstr ""
+
+#: product/apps.py:8 product/models.py:88
+msgid "Product"
 msgstr ""
 
 #: product/models.py:16
@@ -110,34 +118,54 @@ msgstr ""
 msgid "Brands"
 msgstr ""
 
-#: product/models.py:88
-msgid "Product"
-msgstr ""
-
 #: product/models.py:89
 msgid "Products"
 msgstr ""
 
-#: templates/admin-customized/base.html:52
-msgid "Welcome,"
+#: templates/admin/base.html:95
+msgid "Search"
 msgstr ""
 
-#: templates/admin-customized/base.html:57
-msgid "View site"
+#: templates/admin/base.html:155
+msgid "Account"
 msgstr ""
 
-#: templates/admin-customized/base.html:62
-msgid "Documentation"
-msgstr ""
-
-#: templates/admin-customized/base.html:66
+#: templates/admin/base.html:158
 msgid "Change password"
 msgstr ""
 
-#: templates/admin-customized/base.html:68
+#: templates/admin/base.html:162
 msgid "Log out"
 msgstr ""
 
-#: templates/admin-customized/base.html:79
-msgid "Home"
+#: templates/admin/base.html:173
+msgid "See Profile"
+msgstr ""
+
+#: templates/admin/base.html:213
+msgid "Dashboard"
+msgstr ""
+
+#: templates/admin/base.html:326
+msgid "Jazzmin version"
+msgstr ""
+
+#: templates/admin/base.html:329
+msgid "Copyright"
+msgstr ""
+
+#: templates/admin/base.html:329
+msgid "All rights reserved."
+msgstr ""
+
+#: templates/admin/base.html:345
+msgid "UI Configuration"
+msgstr ""
+
+#: templates/admin/base.html:349
+msgid "Copy this info your settings file to persist these UI changes"
+msgstr ""
+
+#: templates/admin/base.html:353
+msgid "Close"
 msgstr ""
