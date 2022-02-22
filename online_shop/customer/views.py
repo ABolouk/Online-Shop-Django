@@ -4,7 +4,11 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse
 
 from django.views import View
+from django.views.generic import UpdateView
+
+from core.models import User
 from customer.models import Customer, Address
+from customer.forms import ProfileForm
 
 
 class ProfileView(PermissionRequiredMixin, View):
@@ -33,3 +37,32 @@ class AddressView(PermissionRequiredMixin, View):
             "customer": customer,
         }
         return render(request=request, template_name="customer/customer_address.html", context=context)
+
+
+class ProfileUpdateView(PermissionRequiredMixin, View):
+    permission_required = "customer.being_customer"
+
+    def get(self, request):
+        user = request.user
+        customer = user.customer
+        data = {
+            "first_name": user.last_name,
+            "last_name": user.first_name,
+            "phone": user.phone,
+            "password": user.password,
+        }
+        form = ProfileForm(data=data)
+        context = {
+            "form": form,
+        }
+        return render(request=request, template_name="customer/customer_update.html", context=context)
+
+    def post(self, request):
+        user = request.user
+        data = request.POST
+        user.phone = data['phone']
+        user.first_name = data['first_name']
+        user.last_name = data['last_name']
+        user.password = data['password']
+        user.save()
+        return HttpResponseRedirect(reverse("profile"))
