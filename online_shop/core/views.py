@@ -1,3 +1,4 @@
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import Group
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -5,7 +6,8 @@ from django.shortcuts import render
 from django.views import View
 from customer.models import Customer
 from core.models import User
-from customer.forms import CustomerRegisterForm, UserForm
+from customer.forms import UserForm
+from core.forms import LoginForm
 
 
 class CustomerRegister(View):
@@ -14,7 +16,8 @@ class CustomerRegister(View):
         context = {
             "form": form,
         }
-        return render(request=request, template_name="customer/customer_register.html", context=context)
+        return render(request=request, template_name="customer/../templates/core/customer_register.html",
+                      context=context)
 
     def post(self, request):
         form = UserForm(request.POST)
@@ -30,8 +33,29 @@ class CustomerRegister(View):
             context = {
                 "form": form,
             }
-            return render(request=request, template_name="customer/customer_register.html", context=context)
+            return render(request=request, template_name="core/customer_register.html", context=context)
 
 
-class CustomerLogin(View):
-    pass
+class CustomerLoginView(View):
+    def get(self, request):
+        form = LoginForm()
+        context = {
+            "form": form,
+        }
+        return render(request=request, template_name="core/login_customer.html", context=context)
+
+    def post(self, request):
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            phone = request.POST['phone']
+            password = request.POST['password']
+            user = authenticate(request, phone=phone, password=password)
+            if user is not None:
+                login(request, user)
+            else:
+                pass  # TODO: add a warning message
+
+        context = {
+            "form": form,
+        }
+        return render(request=request, template_name="core/login_customer.html", context=context)
