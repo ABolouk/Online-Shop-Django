@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 
-from core.views import CustomerRegister, CustomerLogin
+from core.views import CustomerRegister, CustomerLoginView
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
@@ -27,6 +27,6 @@ urlpatterns = i18n_patterns(
     path('product/', include('product.urls')),
     path('customer/', include('customer.urls')),
     path('register/', CustomerRegister.as_view(), name="register"),
-    path('login/', CustomerLogin.as_view(), name="login"),
+    path('login/', CustomerLoginView.as_view(), name="login"),
     prefix_default_language=False,
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
