@@ -1,0 +1,20 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Customer Addresses" %}{% endblock %}
+{% block content %}
+    <ul>
+        {% for address in addresses %}
+            <li>{{ address }}</li>
+        {% endfor %}
+    </ul>
+    <p>{% translate "Back to dashboard for " %}<a href="{% url "profile" %}">{{ customer }}</a></p>
+{#    <form action="{% url "profile-update" %}" method="GET">#}
+{#        <button type="submit">{% translate "Edit Profile" %}</button>#}
+{#    </form>#}
+    {% comment %}
+    add a button for adding new addresses!
+    {% endcomment %}
+{% endblock %}
