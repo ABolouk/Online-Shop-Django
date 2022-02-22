@@ -1,17 +1,23 @@
 from django.db import models
-from core.utils import price_discount
+from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+from core.utils import price_discount
+from core.models import BaseModel
 
-class Discount(models.Model):
+
+class AbstractDiscount(BaseModel):
+    class Meta:
+        abstract = True
+
     PERCENTAGE_DISCOUNT = "PER"
     VALUE_DISCOUNT = "VAL"
     TYPES_OF_DISCOUNT = [
-        (PERCENTAGE_DISCOUNT, "Percentage Discount"),
-        (VALUE_DISCOUNT, "Value Discount"),
+        (PERCENTAGE_DISCOUNT, _("Percentage Discount")),
+        (VALUE_DISCOUNT, _("Value Discount")),
     ]
     type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
-    amount = models.CharField(max_length=20, validators=[MinValueValidator(1), MaxValueValidator(100)])
+    amount = models.CharField(max_length=20)  # TODO: If type==PER validate "0 < amount < 100"
     max_value = models.CharField(max_length=20, null=True, blank=True)
 
     def __str__(self):
@@ -21,28 +27,24 @@ class Discount(models.Model):
         return message
 
 
-class OffCode(models.Model):
-    PERCENTAGE_DISCOUNT = "PER"
-    VALUE_DISCOUNT = "VAL"
-    TYPES_OF_DISCOUNT = [
-        (PERCENTAGE_DISCOUNT, "Percentage Discount"),
-        (VALUE_DISCOUNT, "Value Discount"),
-    ]
-    code = models.CharField(max_length=30)
-    type = models.CharField(max_length=3, choices=TYPES_OF_DISCOUNT)
-    amount = models.CharField(max_length=20, validators=[MinValueValidator(1), MaxValueValidator(100)])
-    max_value = models.CharField(max_length=20, null=True, blank=True)
+class Discount(AbstractDiscount):
+    class Meta:
+        verbose_name = _("Discount")
+        verbose_name_plural = _("Discounts")
 
-    def __str__(self):
-        price_tag = "%" if self.type == "PER" else "T"
-        max_tag = ", max=" + self.max_value + "T" if self.max_value else ""
-        message = f"{self.amount}{price_tag}{max_tag}"
-        return message
+    name = models.CharField(max_length=100, help_text=_("A name for discount."))
+
+
+class OffCode(AbstractDiscount):
+    class Meta:
+        verbose_name = _("Discount Code")
+        verbose_name_plural = _("Discount Codes")
+
+    code = models.CharField(max_length=30, help_text=_("Code that validates the discount."))
 
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-    description = models.CharField(max_length=150, null=True, blank=True)
     category = models.ForeignKey(to='self', null=True, blank=True, on_delete=models.SET_NULL, related_name="categories")
 
     def __str__(self):
