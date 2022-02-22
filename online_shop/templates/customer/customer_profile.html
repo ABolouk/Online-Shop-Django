@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Customer Profile" %}{% endblock %}
+{% block content %}
+    <div>
+        <p>{{ customer.user.phone }}</p>
+        <p>{{ customer.user.password }}</p>
+        {#<p>{{ customer.user.first }}</p>#}
+        {#<p>{{ customer.user.password }}</p>#}
+    </div>
+{% endblock %}
