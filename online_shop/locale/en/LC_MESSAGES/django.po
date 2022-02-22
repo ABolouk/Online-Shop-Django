@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 12:36+0000\n"
+"POT-Creation-Date: 2022-02-22 14:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: core/forms.py:25 customer/forms.py:28
+#: core/forms.py:25 customer/forms.py:28 customer/forms.py:50
 msgid "Password"
 msgstr ""
 
@@ -34,15 +34,15 @@ msgstr ""
 msgid "Customer"
 msgstr ""
 
-#: customer/forms.py:15
+#: customer/forms.py:15 customer/forms.py:47
 msgid "First Name"
 msgstr ""
 
-#: customer/forms.py:16
+#: customer/forms.py:16 customer/forms.py:48
 msgid "Last Name"
 msgstr ""
 
-#: customer/forms.py:27
+#: customer/forms.py:27 customer/forms.py:49
 msgid "Phone Number"
 msgstr ""
 
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: customer/models.py:43
+#: customer/models.py:43 templates/customer/customer_profile.html:18
 msgid "Addresses"
 msgstr ""
 
@@ -70,19 +70,19 @@ msgstr ""
 msgid "Amirhossein Bolouk Asli"
 msgstr ""
 
-#: order/apps.py:8 order/models.py:27
+#: order/apps.py:8 order/models.py:29
 msgid "Order"
 msgstr ""
 
-#: order/models.py:28
+#: order/models.py:30 templates/customer/customer_profile.html:21
 msgid "Orders"
 msgstr ""
 
-#: order/models.py:43
+#: order/models.py:45
 msgid "Order Item"
 msgstr ""
 
-#: order/models.py:44
+#: order/models.py:46
 msgid "Order Items"
 msgstr ""
 
@@ -194,6 +194,14 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: templates/core/base.html:16
+msgid "Back"
+msgstr ""
+
+#: templates/core/base.html:16
+msgid " to dashboard"
+msgstr ""
+
 #: templates/core/customer_register.html:5
 msgid "Register Customer"
 msgstr ""
@@ -210,22 +218,66 @@ msgstr ""
 msgid "login"
 msgstr ""
 
+#: templates/customer/customer_address.html:6
+msgid "Customer Addresses"
+msgstr ""
+
+#: templates/customer/customer_address.html:13
+msgid "Back to dashboard for "
+msgstr ""
+
+#: templates/customer/customer_order_history.html:6
+msgid "Customer Order History"
+msgstr ""
+
+#: templates/customer/customer_order_history.html:12
+msgid "Paid: "
+msgstr ""
+
 #: templates/customer/customer_profile.html:6
 msgid "Customer Profile"
 msgstr ""
 
-#: templates/customer/customer_profile.html:10
+#: templates/customer/customer_profile.html:9
 msgid "First Name: "
 msgstr ""
 
-#: templates/customer/customer_profile.html:11
+#: templates/customer/customer_profile.html:10
 msgid "Last Name: "
 msgstr ""
 
-#: templates/customer/customer_profile.html:12
+#: templates/customer/customer_profile.html:11
 msgid "Phone Number: "
 msgstr ""
 
-#: templates/customer/customer_profile.html:13
+#: templates/customer/customer_profile.html:12
 msgid "Email: "
+msgstr ""
+
+#: templates/customer/customer_profile.html:15
+msgid "Edit Profile"
+msgstr ""
+
+#: templates/customer/customer_profile.html:24
+msgid "Logout"
+msgstr ""
+
+#: templates/customer/customer_update.html:6
+msgid "Customer Profile Update"
+msgstr ""
+
+#: templates/customer/order_items.html:6
+msgid "Order "
+msgstr ""
+
+#: templates/customer/order_items.html:6
+msgid "itmes"
+msgstr ""
+
+#: templates/customer/order_items.html:8
+msgid "Address: "
+msgstr ""
+
+#: templates/customer/order_items.html:11
+msgid " of "
 msgstr ""
