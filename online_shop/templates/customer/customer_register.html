@@ -5,11 +5,11 @@
 {% block title %}{% translate "Register Customer" %}{% endblock %}
 
 {% block content %}
-    <form method="POST" action="">
+    <form method="POST" action="{% url "register" %}">
+    {% csrf_token %}
         <table>
-            {{ user_form.as_table }}
-            {{ customer_form.as_table }}
+            {{ form.as_table }}
         </table>
-        <button type="submit">submit</button>
+        <button type="submit">{% translate "Register" %}</button>
     </form>
 {% endblock %}
