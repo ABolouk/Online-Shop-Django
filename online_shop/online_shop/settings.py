@@ -9,6 +9,121 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+from django.utils.translation import gettext_lazy as _
+
+JAZZMIN_SETTINGS = {
+    # title of the window (Will default to current_admin_site.site_title if absent or None)
+    "site_title": _("Online Shop"),
+
+    # Title on the brand, and login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
+    "site_header": "Online Shop",
+
+    "site_logo": "logo/logo.png",
+
+    # CSS classes that are applied to the logo above
+    "site_logo_classes": "img-circle",
+
+    # Welcome text on the login screen
+    "welcome_sign": "Welcome to online shop admin panel.",
+
+    # Copyright on the footer
+    "copyright": _("Amirhossein Bolouk Asli"),
+
+    # The model admin to search from the search bar, search bar omitted if excluded
+    "search_model": "user.User",
+
+    # Field name on user model that contains avatar image
+    "user_avatar": None,
+
+    # # Links to put along the top menu
+    # "topmenu_links": [
+    #
+    #     # Url that gets reversed (Permissions can be added)
+    #     {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+    #
+    #     # model admin to link to (Permissions checked against model)
+    #     {"model": "user.User"},
+    # ],
+
+    #############
+    # User Menu #
+    #############
+
+    # Additional links to include in the user menu on the top right ("app" url type is not allowed)
+    # "usermenu_links": [
+    #     {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
+    #     {"model": "user.User"}
+    # ],
+    # "language_chooser": True,
+
+    # Whether to display the side menu
+    "show_sidebar": True,
+
+    # Whether to aut expand the menu
+    "navigation_expanded": True,
+
+    # Hide these apps when generating side menu e.g (auth)
+    "hide_apps": [],
+
+    # Hide these models when generating side menu (e.g auth.user)
+    "hide_models": [],
+
+    # for the full list of 5.13.0 free icon classes
+    "icons": {
+        "auth": "fa fa-users-cog",
+        "core.User": "fa fa-user",
+        "customer.Address": "fa fa-map-marker",
+        "customer.Customer": "fas fa-user-tie",
+        "order.OrderItem": "fa fa-shopping-bag",
+        "order.Order": "fa fa-shopping-cart",
+        "product.Brand": "fa fa-industry",
+        "product.Category": "fa fa-bars",
+        "product.OffCode": "fa fa-code",
+        "product.Discount": "fa fa-percent",
+        "product.Product": "fa fa-product-hunt",
+    },
+    # Icons that are used when one is not manually specified
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+
+    "related_modal_active": False,
+
+    "show_ui_builder": False,
+
+    "changeform_format": "horizontal_tabs",
+    "changeform_format_overrides": {"user.User": "collapsible"},
+}
+JAZZMIN_UI_TWEAKS = {
+    "navbar_small_text": False,
+    "footer_small_text": True,
+    "body_small_text": False,
+    "brand_small_text": False,
+    "brand_colour": "navbar-gray",
+    "accent": "accent-teal",
+    "navbar": "navbar-secondary navbar-dark",
+    "no_navbar_border": False,
+    "navbar_fixed": False,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": False,
+    "sidebar": "sidebar-light-info",
+    "sidebar_nav_small_text": False,
+    "sidebar_disable_expand": False,
+    "sidebar_nav_child_indent": False,
+    "sidebar_nav_compact_style": True,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "minty",
+    "dark_mode_theme": None,
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-outline-info",
+        "warning": "btn-outline-warning",
+        "danger": "btn-danger",
+        "success": "btn-success"
+    }
+}
 
 from pathlib import Path
 
@@ -30,6 +145,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Installed Apps
+    'jazzmin',
     'rest_framework',
     'rosetta',
     # Preinstalled Apps
