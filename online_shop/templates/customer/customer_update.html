@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Customer Profile Update" %}{% endblock %}
+{% block content %}
+    <form action="{% url "profile-update" %}" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Update">
+    </form>
+{% endblock %}
