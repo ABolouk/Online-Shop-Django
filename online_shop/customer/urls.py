@@ -9,4 +9,7 @@ urlpatterns = [
     path("address/", views.AddressView.as_view(), name="address"),
     path("profile/", views.ProfileView.as_view(), name="profile"),
     path("profile/update/", views.ProfileUpdateView.as_view(), name="profile-update"),
+
+    path("address_api/<int:pk>", views.AddressDetailView.as_view()),
+    path("address_list_api/", views.AddressListView.as_view()),
 ]

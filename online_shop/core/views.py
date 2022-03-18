@@ -29,7 +29,7 @@ class CustomerRegisterView(View):
             customer = Customer.objects.create(user=user)
             group = Group.objects.get(name='customer')
             user.groups.add(group)
-            return HttpResponse(reverse("login"))
+            return HttpResponse(reverse("login-customer"))
         else:
             context = {
                 "form": form,

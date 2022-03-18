@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse
+from rest_framework import generics, permissions, authentication
 
 from django.views import View
 from django.views.generic import UpdateView, ListView, DetailView
@@ -10,6 +11,8 @@ from core.models import User
 from customer.models import Customer, Address
 from customer.forms import ProfileForm
 from order.models import Order
+from customer.serializers import AddressSerializer, UserSerializer
+from customer.permissions import IsOwnerPermission, IsSuperuserPermission
 
 
 class ProfileView(PermissionRequiredMixin, View):
@@ -86,3 +89,21 @@ class OrderHistoryListView(PermissionRequiredMixin, DetailView):
     permission_required = "customer.being_customer"
     model = Order
     template_name = "customer/order_items.html"
+
+
+# class UserListView()
+# class UserDetailView()
+
+class AddressListView(generics.ListAPIView):
+    model = Address
+    serializer_class = AddressSerializer
+    queryset = Address.objects.all()
+    permissions = [IsSuperuserPermission]
+    authentication = [authentication.BasicAuthentication]
+
+
+class AddressDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = AddressSerializer
+    queryset = Address.objects.all()
+    permissions = [IsOwnerPermission]
+    authentication_classes = [authentication.BasicAuthentication]
