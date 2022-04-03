@@ -18,9 +18,9 @@
                     <li class="list-group-item">{% translate "Price:" %} <b>{{ order.total_price }}</b></li>
                     <li class="list-group-item">
                         {% if order.is_paid %}
-                            <a class="btn btn-success disabled" href="#">Paid</a>
+                            <a class="btn btn-success w-100 disabled" href="#">Paid</a>
                         {% else %}
-                            <a class="btn btn-danger" href="#">Pay</a>
+                            <a class="btn btn-danger w-100" href="#">Pay</a>
                         {% endif %}
                     </li>
                 </ul>

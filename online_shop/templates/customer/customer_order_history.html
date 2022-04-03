@@ -24,11 +24,10 @@
                             <p class="card-text">
                                 {% translate "to: " %} {{ order.address.province }}-{{ order.address.city }}</p>
                             <p>{% translate "Price:" %} <b>{{ order.total_price }}</b></p>
-                            <p class="card-text">
-                                {% translate "Paid: " %} {% if order.is_paid %}
-                                <a class="btn btn-success disabled" href="#">Paid</a>
+                            <p class="card-text">{% if order.is_paid %}
+                                <a class="btn btn-success disabled w-100" href="#">{% translate "Paid" %}</a>
                             {% else %}
-                                <a class="btn btn-danger" href="#">Pay</a>
+                                <a class="btn btn-danger w-100" href="#">{% translate "Pay" %}</a>
                             {% endif %}
                             </p>
                         </div>
