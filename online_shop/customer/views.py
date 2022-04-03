@@ -162,3 +162,12 @@ class EditAddressView(PermissionRequiredMixin, UpdateView):
     fields = ["province", "city", "detail"]
     template_name = "customer/edit_address.html"
     success_url = reverse_lazy("customer:address")
+
+
+class DeleteAddressView(PermissionRequiredMixin, View):
+    permission_required = "customer.being_customer"
+
+    def get(self, request, address_id):
+        Address.objects.get(id=address_id).delete()
+        messages.success(request, _("Address Deleted."), "success")
+        return redirect("customer:address")
