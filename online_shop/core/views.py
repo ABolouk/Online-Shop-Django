@@ -3,6 +3,8 @@ from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 from django.views import View
 from customer.models import Customer
@@ -40,7 +42,7 @@ class CustomerRegisterView(View):
 class CustomerLoginView(View):
     def get(self, request):
         if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse("customer:profile"))
+            return redirect("customer:profile")
         form = LoginForm()
         context = {
             "form": form,
@@ -55,10 +57,10 @@ class CustomerLoginView(View):
             user = authenticate(request, phone=phone, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse("customer:profile"))
+                return redirect("customer:profile")
             else:
-                print("WHATTTT??")
-                pass  # TODO: add a warning message
+                messages.error(request, _("Phone or password is incorrect."), "danger")
+                return redirect("login-customer")
 
         context = {
             "form": form,
@@ -69,5 +71,5 @@ class CustomerLoginView(View):
 def logout_view(request):
     if request.method == "GET":
         logout(request)
-        # TODO: add an info message -> Successfully logged out!
+        messages.success(request, _("User logged out successfully."), "success")
         return HttpResponseRedirect(reverse("login-customer"))
