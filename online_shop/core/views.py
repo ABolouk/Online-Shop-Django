@@ -1,13 +1,10 @@
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import Group
-from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
 from django.views import View
-from customer.models import Customer
 from core.models import User
 from customer.forms import UserForm
 from core.forms import LoginForm
@@ -28,9 +25,10 @@ class CustomerRegisterView(View):
             phone = request.POST['phone']
             password = request.POST['password']
             user: User = User.objects.create_user(phone=phone, password=password)
-            customer = Customer.objects.create(user=user)
             group = Group.objects.get(name='customer')
             user.groups.add(group)
+            user = authenticate(request, phone=phone, password=password)
+            login(request, user)
             return redirect("customer:profile")
         else:
             context = {
@@ -72,4 +70,4 @@ def logout_view(request):
     if request.method == "GET":
         logout(request)
         messages.success(request, _("User logged out successfully."), "success")
-        return HttpResponseRedirect(reverse("login-customer"))
+        return redirect("login-customer")
