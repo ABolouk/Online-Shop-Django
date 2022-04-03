@@ -5,12 +5,30 @@
 
 {% block title %}{% translate "Customer Order History" %}{% endblock %}
 {% block content %}
-    <ul>
-        {% for order in orders %}
-            <li><a href="{% url "customer:order-items" order.id %}">{{ order }}</a></li>
-            <ul>
-                <li>{% translate "Paid: " %}{{ order.is_paid }}</li>
-            </ul>
-        {% endfor %}
-    </ul>
+    {#    <ul>#}
+    {#        {% for order in orders %}#}
+    {#            <li><a href="{% url "customer:order-items" order.id %}">{{ order }}</a></li>#}
+    {#            <ul>#}
+    {#                <li>{% translate "Paid: " %}{{ order.is_paid }}</li>#}
+    {#            </ul>#}
+    {#        {% endfor %}#}
+    {#    </ul>#}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for order in orders %}
+                <div class="card w-auto m-1">
+                    <a style="text-decoration: None; color: black;" href="{% url "customer:order-items" order.id %}">
+                        <div class="card-body">
+                            <h3>Order {{ forloop.counter }}</h3>
+                            <p class="card-text">
+                                {% translate "to: " %} {{ order.address.province }}-{{ order.address.city }}</p>
+                            <p>{% translate "Price:" %} <b>{{ order.total_price }}</b></p>
+                            <p class="card-text">{% translate "Paid: " %} {{ order.is_paid }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
