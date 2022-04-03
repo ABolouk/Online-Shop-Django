@@ -5,15 +5,18 @@
 
 {% block title %}{% translate "Customer Addresses" %}{% endblock %}
 {% block content %}
-    <ul>
-        {% for address in addresses %}
-            <li>{{ address }}</li>
-        {% endfor %}
-    </ul>
-{#    <form action="{% url "profile-update" %}" method="GET">#}
-{#        <button type="submit">{% translate "Edit Profile" %}</button>#}
-{#    </form>#}
-    {% comment %}
-    add a button for adding new addresses!
-    {% endcomment %}
+    <a class="btn btn-primary mb-5" href="">{% translate "Add Address" %}</a>
+    <div class="container">
+        <div class="row">
+            {% for address in addresses %}
+                <div class="card w-25 m-1">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ address.province }}-{{ address.city }}</h5>
+                        <p class="card-text">{{ address.detail }}</p>
+                        <a href="{% url "customer:edit-address" %}" class="btn btn-primary">{% translate "Edit" %}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
