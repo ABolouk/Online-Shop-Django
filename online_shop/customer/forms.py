@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from django.core.exceptions import ValidationError
 
 from customer.models import Customer
 from core.models import User
@@ -18,6 +19,8 @@ class CustomerRegisterForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):  # TODO: add re-enter password
+    password2 = forms.CharField(widget=forms.PasswordInput())
+
     class Meta:
         model = User
         # fields = "__all__"
@@ -26,6 +29,7 @@ class UserForm(forms.ModelForm):  # TODO: add re-enter password
         labels = {
             'phone': _("Phone Number"),
             'password': _("Password"),
+            'password2': _("Confirm Password"),
         }
 
         widgets = {
@@ -36,6 +40,12 @@ class UserForm(forms.ModelForm):  # TODO: add re-enter password
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
         return check_phone(phone)
+
+    def clean_password2(self):
+        cd = self.cleaned_data
+        if cd["password"] and cd["password2"] and cd["password"] != cd["password2"]:
+            raise ValidationError(_("Passwords does not match."))
+        return cd["password2"]
 
 
 class ProfileForm(forms.ModelForm):
