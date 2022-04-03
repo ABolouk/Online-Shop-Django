@@ -33,7 +33,7 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
-    objects = BaseManager
+    objects = BaseManager()
 
     is_delete = models.BooleanField(default=False, editable=False, db_index=True)
 
