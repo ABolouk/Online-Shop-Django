@@ -5,11 +5,17 @@
 
 {% block title %}{% translate "Customer Profile" %}{% endblock %}
 {% block content %}
-    <div>
-        <p>{% translate "First Name: " %}{{ customer.user.first_name }}</p>
-        <p>{% translate "Last Name: " %}{{ customer.user.last_name }}</p>
-        <p>{% translate "Phone Number: " %}{{ customer.user.phone }}</p>
-        <p>{% translate "Email: " %}{{ customer.user.email }}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card w-auto m-1 align-items-center">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{% translate "First Name: " %}{{ customer.user.first_name }}</li>
+                    <li class="list-group-item">{% translate "Last Name: " %}{{ customer.user.last_name }}</li>
+                    <li class="list-group-item">{% translate "Phone Number: " %}{{ customer.user.phone }}</li>
+                    <li class="list-group-item">{% translate "Email: " %}{{ customer.user.email }}</li>
+                </ul>
+                <a class="btn btn-primary w-50 my-2" href="{% url "customer:profile-update" %}">{% translate "Edit Profile" %}</a>
+            </div>
+        </div>
     </div>
-    <a class="btn btn-primary" href="{% url "customer:profile-update" %}">{% translate "Edit Profile" %}</a>
 {% endblock %}
