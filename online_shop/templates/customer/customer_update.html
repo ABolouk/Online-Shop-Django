@@ -10,6 +10,7 @@
         <table>
             {{ form.as_table }}
         </table>
-        <input type="submit" value="Update">
+        <input class="btn btn-primary" type="submit" value="Update">
+        <a class="btn btn-primary" href="{% url "customer:password-change" %}">Change Password</a>
     </form>
 {% endblock %}
