@@ -51,14 +51,6 @@ class ProfileUpdateView(PermissionRequiredMixin, View):
 
     def get(self, request):
         user = request.user
-        # customer = user.customer
-        # data = {
-        #     "first_name": user.last_name,
-        #     "last_name": user.first_name,
-        #     "phone": user.phone,
-        #     # "password": user.password,
-        # }
-        # # form = ProfileForm(data=data)
         form = ProfileForm(instance=user)
         context = {
             "form": form,
@@ -71,6 +63,7 @@ class ProfileUpdateView(PermissionRequiredMixin, View):
         user.phone = data['phone']
         user.first_name = data['first_name']
         user.last_name = data['last_name']
+        user.email = data['email']
         user.save()
         return HttpResponseRedirect(reverse("customer:profile"))
 
