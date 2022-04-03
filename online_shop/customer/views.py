@@ -1,7 +1,9 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from rest_framework import generics, permissions, authentication
 
 from django.views import View
@@ -9,7 +11,7 @@ from django.views.generic import UpdateView, ListView, DetailView
 
 from core.models import User
 from customer.models import Customer, Address
-from customer.forms import ProfileForm
+from customer.forms import ProfileForm, ChangePasswordForm
 from order.models import Order
 from customer.serializers import AddressSerializer, UserSerializer
 from customer.permissions import IsOwnerPermission, IsSuperuserPermission
@@ -48,14 +50,15 @@ class ProfileUpdateView(PermissionRequiredMixin, View):
 
     def get(self, request):
         user = request.user
-        customer = user.customer
-        data = {
-            "first_name": user.last_name,
-            "last_name": user.first_name,
-            "phone": user.phone,
-            "password": user.password,
-        }
-        form = ProfileForm(data=data)
+        # customer = user.customer
+        # data = {
+        #     "first_name": user.last_name,
+        #     "last_name": user.first_name,
+        #     "phone": user.phone,
+        #     # "password": user.password,
+        # }
+        # # form = ProfileForm(data=data)
+        form = ProfileForm(instance=user)
         context = {
             "form": form,
         }
@@ -67,7 +70,6 @@ class ProfileUpdateView(PermissionRequiredMixin, View):
         user.phone = data['phone']
         user.first_name = data['first_name']
         user.last_name = data['last_name']
-        user.password = data['password']
         user.save()
         return HttpResponseRedirect(reverse("customer:profile"))
 
@@ -107,3 +109,31 @@ class AddressDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Address.objects.all()
     permissions = [IsOwnerPermission]
     authentication_classes = [authentication.BasicAuthentication]
+
+
+class PasswordChangeView(PermissionRequiredMixin, View):
+    permission_required = "customer.being_customer"
+
+    def get(self, request):
+        form = ChangePasswordForm()
+        context = {
+            "form": form
+        }
+        return render(request=request, template_name="customer/change_password.html", context=context)
+
+    def post(self, request):
+        form = ChangePasswordForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            new_password = form.cleaned_data["new_password"]
+            user.set_password(new_password)
+            user.save()
+            messages.success(request, _("Password successfully changed"), "success")
+            return redirect("customer:profile")
+        else:
+            context = {
+                "form": form
+            }
+            messages.error(request, _("Enter a valid password."), "danger")
+            return render(request=request, template_name="customer/change_password.html", context=context)
+
