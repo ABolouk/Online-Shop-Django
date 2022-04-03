@@ -25,7 +25,7 @@ urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('product/', include('product.urls')),
-    path('customer/', include('customer.urls')),
+    path('customer/', include('customer.urls', namespace="customer")),
     path('register/', CustomerRegisterView.as_view(), name="register-customer"),
     path('login/', CustomerLoginView.as_view(), name="login-customer"),
     path('logout/', logout_view, name="logout-customer"),

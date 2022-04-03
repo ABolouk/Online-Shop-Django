@@ -1,7 +1,7 @@
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import Group
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from django.views import View
@@ -29,7 +29,7 @@ class CustomerRegisterView(View):
             customer = Customer.objects.create(user=user)
             group = Group.objects.get(name='customer')
             user.groups.add(group)
-            return HttpResponse(reverse("login-customer"))
+            return redirect("customer:profile")
         else:
             context = {
                 "form": form,
@@ -40,7 +40,7 @@ class CustomerRegisterView(View):
 class CustomerLoginView(View):
     def get(self, request):
         if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse("profile"))
+            return HttpResponseRedirect(reverse("customer:profile"))
         form = LoginForm()
         context = {
             "form": form,
@@ -55,7 +55,7 @@ class CustomerLoginView(View):
             user = authenticate(request, phone=phone, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponseRedirect(reverse("profile"))
+                return HttpResponseRedirect(reverse("customer:profile"))
             else:
                 print("WHATTTT??")
                 pass  # TODO: add a warning message

@@ -1,7 +1,7 @@
 from django.urls import path
 from customer import views
 
-# app_name = "customer"
+app_name = "customer"
 urlpatterns = [
     path("order_history/", views.OrderHistoryView.as_view(), name="order-history"),
     path("order_history/<int:pk>", views.OrderHistoryListView.as_view(), name="order-items"),

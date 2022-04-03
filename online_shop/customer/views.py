@@ -69,7 +69,7 @@ class ProfileUpdateView(PermissionRequiredMixin, View):
         user.last_name = data['last_name']
         user.password = data['password']
         user.save()
-        return HttpResponseRedirect(reverse("profile"))
+        return HttpResponseRedirect(reverse("customer:profile"))
 
 
 class OrderHistoryView(PermissionRequiredMixin, View):
