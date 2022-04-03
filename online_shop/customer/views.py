@@ -153,3 +153,12 @@ class AddAddressView(PermissionRequiredMixin, CreateView):
         address.save()
         messages.success(self.request, _("Address successfully added."), "success")
         return super().form_valid(form)
+
+
+class EditAddressView(PermissionRequiredMixin, UpdateView):
+    permission_required = "customer.being_customer"
+
+    model = Address
+    fields = ["province", "city", "detail"]
+    template_name = "customer/edit_address.html"
+    success_url = reverse_lazy("customer:address")
