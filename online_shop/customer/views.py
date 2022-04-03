@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.contrib.auth import login
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse, reverse_lazy
@@ -128,7 +129,8 @@ class PasswordChangeView(PermissionRequiredMixin, View):
             new_password = form.cleaned_data["new_password"]
             user.set_password(new_password)
             user.save()
-            messages.success(request, _("Password successfully changed"), "success")
+            messages.success(request, _("Password changed successfully."), "success")
+            login(request, user)
             return redirect("customer:profile")
         else:
             context = {
