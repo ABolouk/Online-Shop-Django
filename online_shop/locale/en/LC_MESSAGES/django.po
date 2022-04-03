@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 14:14+0000\n"
+"POT-Creation-Date: 2022-04-03 18:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,28 +26,52 @@ msgstr ""
 msgid "Phone"
 msgstr ""
 
-#: core/forms.py:25 customer/forms.py:28 customer/forms.py:50
+#: core/forms.py:25 customer/forms.py:31
 msgid "Password"
+msgstr ""
+
+#: core/views.py:60
+msgid "Phone or password is incorrect."
+msgstr ""
+
+#: core/views.py:72
+msgid "User logged out successfully."
 msgstr ""
 
 #: customer/apps.py:8 customer/models.py:22
 msgid "Customer"
 msgstr ""
 
-#: customer/forms.py:15 customer/forms.py:47
+#: customer/forms.py:16 customer/forms.py:57
 msgid "First Name"
 msgstr ""
 
-#: customer/forms.py:16 customer/forms.py:48
+#: customer/forms.py:17 customer/forms.py:58
 msgid "Last Name"
 msgstr ""
 
-#: customer/forms.py:27 customer/forms.py:49
+#: customer/forms.py:30 customer/forms.py:59
 msgid "Phone Number"
 msgstr ""
 
 #: customer/forms.py:32
+msgid "Confirm Password"
+msgstr ""
+
+#: customer/forms.py:36
 msgid "Example: 09123456789"
+msgstr ""
+
+#: customer/forms.py:47
+msgid "Passwords does not match."
+msgstr ""
+
+#: customer/forms.py:60
+msgid "Email"
+msgstr ""
+
+#: customer/forms.py:69
+msgid "New Password"
 msgstr ""
 
 #: customer/models.py:23
@@ -58,8 +82,24 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: customer/models.py:43 templates/customer/customer_profile.html:18
+#: customer/models.py:43 templates/core/includes/navbar.html:22
 msgid "Addresses"
+msgstr ""
+
+#: customer/views.py:125
+msgid "Password changed successfully."
+msgstr ""
+
+#: customer/views.py:132
+msgid "Enter a valid password."
+msgstr ""
+
+#: customer/views.py:149
+msgid "Address successfully added."
+msgstr ""
+
+#: customer/views.py:167
+msgid "Address Deleted."
 msgstr ""
 
 #: online_shop/settings.py:16
@@ -74,7 +114,7 @@ msgstr ""
 msgid "Order"
 msgstr ""
 
-#: order/models.py:30 templates/customer/customer_profile.html:21
+#: order/models.py:30 templates/core/includes/navbar.html:26
 msgid "Orders"
 msgstr ""
 
@@ -194,20 +234,29 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: templates/core/base.html:16
-msgid "Back"
-msgstr ""
-
-#: templates/core/base.html:16
-msgid " to dashboard"
-msgstr ""
-
 #: templates/core/customer_register.html:5
 msgid "Register Customer"
 msgstr ""
 
 #: templates/core/customer_register.html:13
+#: templates/core/includes/navbar.html:33
 msgid "Register"
+msgstr ""
+
+#: templates/core/includes/navbar.html:13
+msgid "Home"
+msgstr ""
+
+#: templates/core/includes/navbar.html:18
+msgid "Profile"
+msgstr ""
+
+#: templates/core/includes/navbar.html:29
+msgid "Logout"
+msgstr ""
+
+#: templates/core/includes/navbar.html:36
+msgid "Login"
 msgstr ""
 
 #: templates/core/login_customer.html:5
@@ -218,52 +267,83 @@ msgstr ""
 msgid "login"
 msgstr ""
 
+#: templates/customer/add_address.html:6
+#: templates/customer/customer_address.html:8
+msgid "Add Address"
+msgstr ""
+
+#: templates/customer/add_address.html:13
+msgid "Add"
+msgstr ""
+
+#: templates/customer/change_password.html:6
+msgid "Change Password"
+msgstr ""
+
 #: templates/customer/customer_address.html:6
 msgid "Customer Addresses"
 msgstr ""
 
-#: templates/customer/customer_address.html:13
-msgid "Back to dashboard for "
+#: templates/customer/customer_address.html:16
+#: templates/customer/edit_address.html:13
+msgid "Edit"
+msgstr ""
+
+#: templates/customer/customer_address.html:17
+msgid "Delete"
 msgstr ""
 
 #: templates/customer/customer_order_history.html:6
 msgid "Customer Order History"
 msgstr ""
 
-#: templates/customer/customer_order_history.html:12
-msgid "Paid: "
+#: templates/customer/customer_order_history.html:25
+msgid "to: "
+msgstr ""
+
+#: templates/customer/customer_order_history.html:26
+#: templates/customer/order_items.html:18
+msgid "Price:"
+msgstr ""
+
+#: templates/customer/customer_order_history.html:28
+msgid "Paid"
+msgstr ""
+
+#: templates/customer/customer_order_history.html:30
+msgid "Pay"
 msgstr ""
 
 #: templates/customer/customer_profile.html:6
 msgid "Customer Profile"
 msgstr ""
 
-#: templates/customer/customer_profile.html:9
+#: templates/customer/customer_profile.html:12
 msgid "First Name: "
 msgstr ""
 
-#: templates/customer/customer_profile.html:10
+#: templates/customer/customer_profile.html:13
 msgid "Last Name: "
 msgstr ""
 
-#: templates/customer/customer_profile.html:11
+#: templates/customer/customer_profile.html:14
 msgid "Phone Number: "
 msgstr ""
 
-#: templates/customer/customer_profile.html:12
+#: templates/customer/customer_profile.html:15
 msgid "Email: "
 msgstr ""
 
-#: templates/customer/customer_profile.html:15
+#: templates/customer/customer_profile.html:17
 msgid "Edit Profile"
-msgstr ""
-
-#: templates/customer/customer_profile.html:24
-msgid "Logout"
 msgstr ""
 
 #: templates/customer/customer_update.html:6
 msgid "Customer Profile Update"
+msgstr ""
+
+#: templates/customer/edit_address.html:6
+msgid "Edit Address"
 msgstr ""
 
 #: templates/customer/order_items.html:6
@@ -274,10 +354,10 @@ msgstr ""
 msgid "itmes"
 msgstr ""
 
-#: templates/customer/order_items.html:8
+#: templates/customer/order_items.html:10
 msgid "Address: "
 msgstr ""
 
-#: templates/customer/order_items.html:11
+#: templates/customer/order_items.html:16
 msgid " of "
 msgstr ""

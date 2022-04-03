@@ -26,14 +26,14 @@
                            href="{% url "customer:order-history" %}">{% translate "Orders" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url "logout-customer" %}">Logout</a>
+                        <a class="nav-link active btn btn-danger" aria-current="page" href="{% url "logout-customer" %}">{% translate "Logout" %}</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url "register-customer" %}">Register</a>
+                        <a class="nav-link active" aria-current="page" href="{% url "register-customer" %}">{% translate "Register" %}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url "login-customer" %}">Login</a>
+                        <a class="nav-link active" aria-current="page" href="{% url "login-customer" %}">{% translate "Login" %}</a>
                     </li>
                 {% endif %}
             </ul>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-22 14:14+0000\n"
+"POT-Creation-Date: 2022-04-03 18:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,31 +26,61 @@ msgstr "هسته"
 msgid "Phone"
 msgstr "تلفن"
 
-#: core/forms.py:25 customer/forms.py:28 customer/forms.py:50
+#: core/forms.py:25 customer/forms.py:31
 #, fuzzy
 #| msgid "Change password"
 msgid "Password"
 msgstr "تغییر رمز"
 
+#: core/views.py:60
+msgid "Phone or password is incorrect."
+msgstr "شماره تلفن یا رمز نادرست است."
+
+#: core/views.py:72
+msgid "User logged out successfully."
+msgstr "کاربر با موفقیت خارج شد."
+
 #: customer/apps.py:8 customer/models.py:22
 msgid "Customer"
 msgstr "مشتری"
 
-#: customer/forms.py:15 customer/forms.py:47
+#: customer/forms.py:16 customer/forms.py:57
 msgid "First Name"
 msgstr "نام"
 
-#: customer/forms.py:16 customer/forms.py:48
+#: customer/forms.py:17 customer/forms.py:58
 msgid "Last Name"
 msgstr "نام خانوادگی"
 
-#: customer/forms.py:27 customer/forms.py:49
+#: customer/forms.py:30 customer/forms.py:59
 msgid "Phone Number"
-msgstr ""
+msgstr "شماره تلفن"
 
 #: customer/forms.py:32
+#, fuzzy
+#| msgid "Change password"
+msgid "Confirm Password"
+msgstr "تغییر رمز"
+
+#: customer/forms.py:36
 msgid "Example: 09123456789"
 msgstr "مثال: ۰۹۱۲۳۴۵۶۷۸۹"
+
+#: customer/forms.py:47
+msgid "Passwords does not match."
+msgstr "رمزها با یکدیگر همخوانی ندارند."
+
+#: customer/forms.py:60
+#, fuzzy
+#| msgid "Email: "
+msgid "Email"
+msgstr "ایمیل: "
+
+#: customer/forms.py:69
+#, fuzzy
+#| msgid "Change password"
+msgid "New Password"
+msgstr "تغییر رمز"
 
 #: customer/models.py:23
 msgid "Customers"
@@ -60,8 +90,26 @@ msgstr "مشتریان"
 msgid "Address"
 msgstr "آدرس"
 
-#: customer/models.py:43 templates/customer/customer_profile.html:18
+#: customer/models.py:43 templates/core/includes/navbar.html:22
 msgid "Addresses"
+msgstr "آدرس‌ها"
+
+#: customer/views.py:125
+msgid "Password changed successfully."
+msgstr "رمز با موفقیت تغییر یافت"
+
+#: customer/views.py:132
+msgid "Enter a valid password."
+msgstr "یک رمز درست وارد کنید."
+
+#: customer/views.py:149
+msgid "Address successfully added."
+msgstr "آدرس با موفقیت اضافه شد."
+
+#: customer/views.py:167
+#, fuzzy
+#| msgid "Addresses"
+msgid "Address Deleted."
 msgstr "آدرس‌ها"
 
 #: online_shop/settings.py:16
@@ -76,7 +124,7 @@ msgstr "امیرحسین بلوک اصلی"
 msgid "Order"
 msgstr "سفارش"
 
-#: order/models.py:30 templates/customer/customer_profile.html:21
+#: order/models.py:30 templates/core/includes/navbar.html:26
 msgid "Orders"
 msgstr "سفارش‌ها"
 
@@ -198,16 +246,6 @@ msgstr "این را در فایل ستینگ کپی کنید تا تغییرات
 msgid "Close"
 msgstr "بستن"
 
-#: templates/core/base.html:16
-msgid "Back"
-msgstr ""
-
-#: templates/core/base.html:16
-#, fuzzy
-#| msgid "Dashboard"
-msgid " to dashboard"
-msgstr "داشبورد"
-
 #: templates/core/customer_register.html:5
 #, fuzzy
 #| msgid "Customer"
@@ -215,18 +253,58 @@ msgid "Register Customer"
 msgstr "مشتری"
 
 #: templates/core/customer_register.html:13
+#: templates/core/includes/navbar.html:33
 msgid "Register"
-msgstr "ثبت"
+msgstr "ثبت نام"
+
+#: templates/core/includes/navbar.html:13
+msgid "Home"
+msgstr "خانه"
+
+#: templates/core/includes/navbar.html:18
+#, fuzzy
+#| msgid "See Profile"
+msgid "Profile"
+msgstr "پروفایل"
+
+#: templates/core/includes/navbar.html:29
+msgid "Logout"
+msgstr "خروج"
+
+#: templates/core/includes/navbar.html:36
+#, fuzzy
+#| msgid "login"
+msgid "Login"
+msgstr "ورود"
 
 #: templates/core/login_customer.html:5
 #, fuzzy
 #| msgid "Customer"
 msgid "Login Customer"
-msgstr "مشتری"
+msgstr "ورود مشتری"
 
 #: templates/core/login_customer.html:13
 msgid "login"
 msgstr "ورود"
+
+#: templates/customer/add_address.html:6
+#: templates/customer/customer_address.html:8
+#, fuzzy
+#| msgid "Address"
+msgid "Add Address"
+msgstr "آدرس"
+
+#: templates/customer/add_address.html:13
+#, fuzzy
+#| msgid "Address"
+msgid "Add"
+msgstr "آدرس"
+
+#: templates/customer/change_password.html:6
+#, fuzzy
+#| msgid "Change password"
+msgid "Change Password"
+msgstr "تغییر رمز"
 
 #: templates/customer/customer_address.html:6
 #, fuzzy
@@ -234,17 +312,37 @@ msgstr "ورود"
 msgid "Customer Addresses"
 msgstr "آدرس‌ها"
 
-#: templates/customer/customer_address.html:13
-msgid "Back to dashboard for "
-msgstr ""
+#: templates/customer/customer_address.html:16
+#: templates/customer/edit_address.html:13
+msgid "Edit"
+msgstr "تغییر"
+
+#: templates/customer/customer_address.html:17
+msgid "Delete"
+msgstr "پاک کردن"
 
 #: templates/customer/customer_order_history.html:6
 msgid "Customer Order History"
 msgstr "تاریخچه سفارشات مشتری"
 
-#: templates/customer/customer_order_history.html:12
-msgid "Paid: "
-msgstr "پرداخت شده: "
+#: templates/customer/customer_order_history.html:25
+msgid "to: "
+msgstr "به: "
+
+#: templates/customer/customer_order_history.html:26
+#: templates/customer/order_items.html:18
+msgid "Price:"
+msgstr "قیمت:"
+
+#: templates/customer/customer_order_history.html:28
+#, fuzzy
+#| msgid "Paid: "
+msgid "Paid"
+msgstr "پرداخت شده"
+
+#: templates/customer/customer_order_history.html:30
+msgid "Pay"
+msgstr "بپرداز"
 
 #: templates/customer/customer_profile.html:6
 #, fuzzy
@@ -252,37 +350,39 @@ msgstr "پرداخت شده: "
 msgid "Customer Profile"
 msgstr "مشتری"
 
-#: templates/customer/customer_profile.html:9
+#: templates/customer/customer_profile.html:12
 msgid "First Name: "
 msgstr "نام: "
 
-#: templates/customer/customer_profile.html:10
+#: templates/customer/customer_profile.html:13
 msgid "Last Name: "
 msgstr "نام خانوادگی: "
 
-#: templates/customer/customer_profile.html:11
+#: templates/customer/customer_profile.html:14
 msgid "Phone Number: "
 msgstr "شماره تلفن: "
 
-#: templates/customer/customer_profile.html:12
+#: templates/customer/customer_profile.html:15
 msgid "Email: "
 msgstr "ایمیل: "
 
-#: templates/customer/customer_profile.html:15
+#: templates/customer/customer_profile.html:17
 #, fuzzy
 #| msgid "See Profile"
 msgid "Edit Profile"
 msgstr "دیدن پروفایل"
-
-#: templates/customer/customer_profile.html:24
-msgid "Logout"
-msgstr "خروج"
 
 #: templates/customer/customer_update.html:6
 #, fuzzy
 #| msgid "Customer"
 msgid "Customer Profile Update"
 msgstr "مشتری"
+
+#: templates/customer/edit_address.html:6
+#, fuzzy
+#| msgid "Address"
+msgid "Edit Address"
+msgstr "آدرس"
 
 #: templates/customer/order_items.html:6
 #, fuzzy
@@ -292,23 +392,25 @@ msgstr "سفارش"
 
 #: templates/customer/order_items.html:6
 msgid "itmes"
-msgstr ""
+msgstr "اقلام"
 
-#: templates/customer/order_items.html:8
+#: templates/customer/order_items.html:10
 #, fuzzy
 #| msgid "Address"
 msgid "Address: "
 msgstr "آدرس"
 
-#: templates/customer/order_items.html:11
+#: templates/customer/order_items.html:16
 msgid " of "
 msgstr " از "
+
+#, fuzzy
+#~| msgid "Dashboard"
+#~ msgid " to dashboard"
+#~ msgstr "داشبورد"
 
 #~ msgid "Welcome,"
 #~ msgstr "خوش آمدید،"
 
 #~ msgid "Documentation"
 #~ msgstr "مستندسازی"
-
-#~ msgid "Home"
-#~ msgstr "خانه"
