@@ -51,11 +51,20 @@ class UserForm(forms.ModelForm):  # TODO: add re-enter password
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "phone", "password"]
+        fields = ["first_name", "last_name", "phone", "email"]
 
         labels = {
             'first_name': _("First Name"),
             'last_name': _("Last Name"),
             'phone': _("Phone Number"),
-            'password': _("Password"),
+            'email': _("Email"),
+        }
+
+
+class ChangePasswordForm(forms.Form):
+    new_password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        labels = {
+            'new_password': _("New Password"),
         }
