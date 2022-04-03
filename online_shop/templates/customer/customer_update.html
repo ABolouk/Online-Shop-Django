@@ -5,12 +5,18 @@
 
 {% block title %}{% translate "Customer Profile Update" %}{% endblock %}
 {% block content %}
-    <form action="{% url "customer:profile-update" %}" method="POST">
-        {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <input class="btn btn-primary" type="submit" value="Update">
-        <a class="btn btn-primary" href="{% url "customer:password-change" %}">Change Password</a>
-    </form>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card w-auto m-1 align-items-center">
+                <form class="m-2" action="{% url "customer:profile-update" %}" method="POST">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <input class="btn btn-primary mt-3" type="submit" value="Update">
+                    <a class="btn btn-warning align-self-end mt-3" href="{% url "customer:password-change" %}">Change Password</a>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
