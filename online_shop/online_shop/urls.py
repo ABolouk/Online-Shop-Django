@@ -29,5 +29,6 @@ urlpatterns = i18n_patterns(
     path('register/', CustomerRegisterView.as_view(), name="register-customer"),
     path('login/', CustomerLoginView.as_view(), name="login-customer"),
     path('logout/', logout_view, name="logout-customer"),
+    path('', include('order.urls', namespace='order')),
     prefix_default_language=False,
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
