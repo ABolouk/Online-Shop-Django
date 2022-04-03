@@ -19,7 +19,7 @@ class CustomerRegisterForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):  # TODO: add re-enter password
-    password2 = forms.CharField(widget=forms.PasswordInput())
+    password2 = forms.CharField(widget=forms.PasswordInput(), label="Confirm Password")
 
     class Meta:
         model = User
