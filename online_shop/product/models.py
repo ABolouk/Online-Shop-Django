@@ -45,6 +45,7 @@ class OffCode(AbstractDiscount):
 
 class Category(BaseModel):
     name = models.CharField(max_length=100)
+    is_parent = models.BooleanField(default=False)
     parent_category = models.ForeignKey(to='self', null=True, blank=True, on_delete=models.SET_NULL,
                                         related_name="categories",
                                         help_text=_("You can add this category under another one."))
