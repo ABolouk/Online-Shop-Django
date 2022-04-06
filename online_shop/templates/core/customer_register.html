@@ -5,11 +5,22 @@
 {% block title %}{% translate "Register Customer" %}{% endblock %}
 
 {% block content %}
-    <form method="POST" action="{% url "register-customer" %}">
-    {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit">{% translate "Register" %}</button>
-    </form>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card w-auto m-1 align-items-center">
+                <form method="POST" action="{% url "register-customer" %}">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <input class="btn btn-primary w-100" type="submit" value="{% translate "Register" %}">
+                    <hr>
+                    <p>
+                        {% translate "Already a member? " %}
+                        <a href="{% url "login-customer" %}">{% translate "Login" %}</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}
