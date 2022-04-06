@@ -22,13 +22,14 @@ from django.conf.urls.i18n import i18n_patterns
 from core.views import CustomerRegisterView, CustomerLoginView, logout_view
 
 urlpatterns = i18n_patterns(
+    path("/", include('home.urls', namespace='home')),
     path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
-    path('product/', include('product.urls')),
-    path('customer/', include('customer.urls', namespace="customer")),
-    path('register/', CustomerRegisterView.as_view(), name="register-customer"),
-    path('login/', CustomerLoginView.as_view(), name="login-customer"),
-    path('logout/', logout_view, name="logout-customer"),
-    path('', include('order.urls', namespace='order')),
+    path('product/', include('product.urls', namespace='product')),
+    path('customer/', include('customer.urls', namespace='customer')),
+    path('register/', CustomerRegisterView.as_view(), name='register-customer'),
+    path('login/', CustomerLoginView.as_view(), name='login-customer'),
+    path('logout/', logout_view, name='logout-customer'),
+    path('order/', include('order.urls', namespace='order')),
     prefix_default_language=False,
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

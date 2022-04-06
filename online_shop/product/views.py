@@ -11,7 +11,6 @@ from product.models import Product
 from product.serializers import ProductSerializer
 
 
-# Create your views here.
 
 # def product_list_view(request):
 #     if request.method == "POST":
