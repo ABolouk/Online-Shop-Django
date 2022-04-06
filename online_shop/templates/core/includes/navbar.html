@@ -29,44 +29,42 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% for category in categories %}
                                 <li><a class="dropdown-item"
-                                       href="#">{{ category.name }}</a></li>
+                                       href="{% url "product:category" category.id %}">{{ category.name }}</a></li>
                                 {% for child in category.children %}
                                     <li>
                                         <a class="dropdown-item"
-                                           href="#">-{{ child.name }}</a>
+                                           href="{% url "product:category" child.id %}">- {{ child.name }}</a>
                                     </li>
                                 {% endfor %}
+                                {% if not forloop.last %}
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            {% translate "Brands" %}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% for brand in brands %}
                                 <li>
-                                    <hr class="dropdown-divider">
+                                    <a class="dropdown-item" href="{% url "product:brand" brand.id %}">{{ brand.name }}</a>
                                 </li>
                             {% endfor %}
                         </ul>
                     </li>
                 {% endif %}
-                {#                {% if request.user.is_authenticated %}#}
-                {#                    <li class="nav-item dropdown">#}
-                {#                        <a class="nav-link dropdown-toggle" href="{% url "customer:profile" %}" id="navbarDropdown"#}
-                {#                           role="button"#}
-                {#                           data-bs-toggle="dropdown" aria-expanded="false">#}
-                {#                            {{ request.user.first_name | title }}#}
-                {#                        </a>#}
-                {#                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
-                {#                            <li><a class="dropdown-item"#}
-                {#                                   href="{% url "customer:profile" %}">{% translate "My Profile" %}</a></li>#}
-                {#                            <li>#}
-                {#                                <hr class="dropdown-divider">#}
-                {#                            </li>#}
-                {#                            <li><a class="dropdown-item"#}
-                {#                                   href="{% url "customer:address" %}">{% translate "Addresses" %}</a></li>#}
-                {#                            <li><a class="dropdown-item"#}
-                {#                                   href="{% url "customer:order-history" %}">{% translate "Orders" %}</a></li>#}
-                {#                        </ul>#}
-                {#                    </li>#}
-                {#                {% endif %}#}
+{#            {% include "core/includes/cart.html" %}#}
             </ul>
+
+            {% include "core/includes/cart.html" %}
             {% if request.user.is_authenticated %}
                 <div class="dropdown">
-                    <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    <a class="btn ms-2 btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         {{ request.user.first_name | title }}
                     </a>
@@ -92,7 +90,6 @@
                    href="{% url "register-customer" %}">{% translate "Register" %}</a>
                 <a class="btn btn-outline-primary ms-2" aria-current="page"
                    href="{% url "login-customer" %}">{% translate "Login" %}</a>
-
             {% endif %}
         </div>
     </div>
