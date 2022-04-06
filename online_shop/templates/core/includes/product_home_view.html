@@ -1,0 +1,16 @@
+{% load i18n %}
+
+<div class="card col-md-3 col-5 p-1 text-center" style="background: #ededed">
+    <a href="" style="text-decoration: None;">
+        <img style="object-fit: cover; height: 14rem;" src="{{ product.image.url }}" class="card-img-top"
+             alt="product-{{ product.id }}"></a>
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.detail|truncatechars:20 }}</p>
+        <h5 class="card-text">{{ product.price }} Toman</h5>
+        <div class="row">
+            <a href="#" class="btn btn-outline-info w-50">{% translate "Info" %}</a>
+            <a href="#" class="btn btn-outline-success w-50">{% translate "Buy" %}</a>
+        </div>
+    </div>
+</div>
