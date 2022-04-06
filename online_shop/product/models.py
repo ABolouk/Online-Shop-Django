@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import MinValueValidator, MaxValueValidator
+from itertools import chain
 
 from core.utils import price_discount
 from core.models import BaseModel
@@ -49,6 +50,14 @@ class Category(BaseModel):
     parent_category = models.ForeignKey(to='self', null=True, blank=True, on_delete=models.SET_NULL,
                                         related_name="categories",
                                         help_text=_("You can add this category under another one."))
+
+    def children_products(self):
+        if self.is_parent:
+            products = []
+            for category in self.children():
+                products = list(chain(products, category.product_set.all()))
+            return products
+        return self.product_set.all()
 
     @classmethod
     def parents(cls):
