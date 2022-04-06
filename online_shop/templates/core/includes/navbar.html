@@ -20,35 +20,73 @@
                     <a class="nav-link active" aria-current="page"
                        href="{% url "home:home" %}">{% translate "Home" %}</a>
                 </li>
-            <li class="nav-item">
-          <a class="nav-link" href="#">{% translate "Categories" %}</a>
-        </li>
-                {% if request.user.is_authenticated %}
+                {% if categories %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            {{ request.user.first_name | title }}
+                            {% translate "Categories" %}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item"
-                                   href="{% url "customer:profile" %}">{% translate "My Profile" %}</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item"
-                                   href="{% url "customer:address" %}">{% translate "Addresses" %}</a></li>
-                            <li><a class="dropdown-item"
-                                   href="{% url "customer:order-history" %}">{% translate "Orders" %}</a></li>
+                            {% for category in categories %}
+                                <li><a class="dropdown-item"
+                                       href="#">{{ category.name }}</a></li>
+                                {% for child in category.children %}
+                                    <li>
+                                        <a class="dropdown-item"
+                                           href="#">-{{ child.name }}</a>
+                                    </li>
+                                {% endfor %}
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                            {% endfor %}
                         </ul>
                     </li>
-                    {#                ----------------------------------------------------------    #}
-
-                    {#                ----------------------------------------------------------    #}
                 {% endif %}
+                {#                {% if request.user.is_authenticated %}#}
+                {#                    <li class="nav-item dropdown">#}
+                {#                        <a class="nav-link dropdown-toggle" href="{% url "customer:profile" %}" id="navbarDropdown"#}
+                {#                           role="button"#}
+                {#                           data-bs-toggle="dropdown" aria-expanded="false">#}
+                {#                            {{ request.user.first_name | title }}#}
+                {#                        </a>#}
+                {#                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+                {#                            <li><a class="dropdown-item"#}
+                {#                                   href="{% url "customer:profile" %}">{% translate "My Profile" %}</a></li>#}
+                {#                            <li>#}
+                {#                                <hr class="dropdown-divider">#}
+                {#                            </li>#}
+                {#                            <li><a class="dropdown-item"#}
+                {#                                   href="{% url "customer:address" %}">{% translate "Addresses" %}</a></li>#}
+                {#                            <li><a class="dropdown-item"#}
+                {#                                   href="{% url "customer:order-history" %}">{% translate "Orders" %}</a></li>#}
+                {#                        </ul>#}
+                {#                    </li>#}
+                {#                {% endif %}#}
             </ul>
             {% if request.user.is_authenticated %}
-                <a class="btn btn-danger" aria-current="page"
-                   href="{% url "logout-customer" %}">{% translate "Logout" %}</a>
+                <div class="dropdown">
+                    <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ request.user.first_name | title }}
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item"
+                               href="{% url "customer:profile" %}">{% translate "My Profile" %}</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item"
+                               href="{% url "customer:address" %}">{% translate "Addresses" %}</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url "customer:order-history" %}">{% translate "Orders" %}</a></li>
+                        <li><a class="dropdown-item"
+                               href="{% url "logout-customer" %}">{% translate "Logout" %}</a></li>
+                    </ul>
+                </div>
+                {#                <a class="btn btn-danger ms-3" aria-current="page"#}
+                {#                   href="{% url "logout-customer" %}">{% translate "Logout" %}</a>#}
             {% else %}
                 <a class="btn btn-success" aria-current="page"
                    href="{% url "register-customer" %}">{% translate "Register" %}</a>
