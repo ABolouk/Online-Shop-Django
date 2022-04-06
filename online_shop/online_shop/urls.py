@@ -22,7 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 from core.views import CustomerRegisterView, CustomerLoginView, logout_view
 
 urlpatterns = i18n_patterns(
-    path("/", include('home.urls', namespace='home')),
+    path("", include('home.urls', namespace='home')),
     path('admin/', admin.site.urls),
     path('rosetta/', include('rosetta.urls')),
     path('product/', include('product.urls', namespace='product')),
