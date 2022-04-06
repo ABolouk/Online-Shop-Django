@@ -1,15 +1,16 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework.decorators import api_view
+from django.views.generic import DetailView
+from django.views import View
 
 from rest_framework.views import APIView
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from rest_framework import generics
 
-from product.models import Product
+from product.models import Product, Category, Brand
 from product.serializers import ProductSerializer
-
 
 
 # def product_list_view(request):
@@ -47,3 +48,40 @@ class ProductListAPI(APIView):
 class ProductDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ProductSerializer
     queryset = Product.objects.all()
+
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name = "product/product_detail_view.html"
+
+
+class CategoryProductView(View):
+    def get(self, request, category_id):
+        category = Category.objects.get(id=category_id)
+        if category.is_parent:
+            products = category.children_products()
+        else:
+            products = category.product_set.all()
+        categories = Category.parents()
+        brands = Brand.objects.all()
+        context = {
+            "products": products,
+            "categories": categories,
+            "brands": brands,
+        }
+        return render(request=request, template_name="product/home.html", context=context)
+
+
+class BrandProductView(View):
+    def get(self, request, brand_id):
+        brand = Brand.objects.get(id=brand_id)
+        products = brand.product_set.all()
+        categories = Category.parents()
+        brands = Brand.objects.all()
+        context = {
+            "products": products,
+            "categories": categories,
+            "brands": brands,
+        }
+        return render(request=request, template_name="product/home.html", context=context)
+
