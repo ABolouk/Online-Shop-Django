@@ -1,42 +1,61 @@
 {% load i18n %}
+{% load static %}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <a class="navbar-brand" href="#">
+        <img src="{% static "logo/logo.png" %}" alt="" width="30" height="24"
+             class="d-inline-block align-text-top">
+        {% translate "Online Shop" %}
+    </a>
+
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
                 aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page"
-                       href="{% url "order:home" %}">{% translate "Home" %}</a>
+                       href="{% url "home:home" %}">{% translate "Home" %}</a>
                 </li>
+            <li class="nav-item">
+          <a class="nav-link" href="#">{% translate "Categories" %}</a>
+        </li>
                 {% if request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                           href="{% url "customer:profile" %}">{% translate "Profile" %}</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ request.user.first_name | title }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item"
+                                   href="{% url "customer:profile" %}">{% translate "My Profile" %}</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item"
+                                   href="{% url "customer:address" %}">{% translate "Addresses" %}</a></li>
+                            <li><a class="dropdown-item"
+                                   href="{% url "customer:order-history" %}">{% translate "Orders" %}</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                           href="{% url "customer:address" %}">{% translate "Addresses" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                           href="{% url "customer:order-history" %}">{% translate "Orders" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active btn btn-danger" aria-current="page" href="{% url "logout-customer" %}">{% translate "Logout" %}</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url "register-customer" %}">{% translate "Register" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url "login-customer" %}">{% translate "Login" %}</a>
-                    </li>
+                    {#                ----------------------------------------------------------    #}
+
+                    {#                ----------------------------------------------------------    #}
                 {% endif %}
             </ul>
+            {% if request.user.is_authenticated %}
+                <a class="btn btn-danger" aria-current="page"
+                   href="{% url "logout-customer" %}">{% translate "Logout" %}</a>
+            {% else %}
+                <a class="btn btn-success" aria-current="page"
+                   href="{% url "register-customer" %}">{% translate "Register" %}</a>
+                <a class="btn btn-outline-primary ms-2" aria-current="page"
+                   href="{% url "login-customer" %}">{% translate "Login" %}</a>
+
+            {% endif %}
         </div>
     </div>
 </nav>
