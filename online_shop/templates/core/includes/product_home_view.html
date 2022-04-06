@@ -9,10 +9,13 @@
         {#        <p class="card-text">{{ product.detail|truncatechars:20 }}</p>#}
         <h5 class="card-text">{{ product.price }} Toman</h5>
         <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center">
+{#                <a href="#" class="col-auto btn btn-outline-danger">{% translate "-" %}</a>#}
+                <input class="col-md-4 col-auto text-center" type="number" min="0" value="1">
+                <a href="#" class="col-auto btn btn-outline-success">{% translate "Add" %}</a>
+            </div>
+            <div class="row mt-2 justify-content-center">
                 <a href="#" class="col-auto btn btn-info">{% translate "Info" %}</a>
-                <a href="#" class="col-4 btn btn-outline-danger">{% translate "Delete" %}</a>
-                <a href="#" class="col-4 btn btn-outline-success">{% translate "Add" %}</a>
             </div>
         </div>
     </div>
