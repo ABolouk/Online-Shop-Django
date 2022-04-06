@@ -1,0 +1,23 @@
+{% load i18n %}
+
+<div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        {% translate "Cart" %}
+    </button>
+    <ul class="dropdown-menu">
+        {#    <li><a class="dropdown-item" href="#">Action</a></li>#}
+        {#    <li><a class="dropdown-item" href="#">Another action</a></li>#}
+        {#    <li><a class="dropdown-item" href="#">Something else here</a></li>#}
+        {#    <li><hr class="dropdown-divider"></li>#}
+        {#    <li><a class="dropdown-item" href="#">Separated link</a></li>#}
+        {% if request.session.cart %}
+            {# add cart code #}
+        {% else %}
+            <li class="dropdown-item">Cart is empty.</li>
+        {% endif %}
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item text-center bg-warning rounded" href="#">Pay</a></li>
+    </ul>
+</div>
