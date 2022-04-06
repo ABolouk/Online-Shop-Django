@@ -50,6 +50,13 @@ class Category(BaseModel):
                                         related_name="categories",
                                         help_text=_("You can add this category under another one."))
 
+    @classmethod
+    def parents(cls):
+        return cls.objects.filter(is_parent=True)
+
+    def children(self):
+        return self.categories.all()
+
     def __str__(self):
         return self.name
 
