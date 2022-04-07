@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 20:45+0000\n"
+"POT-Creation-Date: 2022-04-07 22:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,7 +91,7 @@ msgid "Address"
 msgstr "آدرس"
 
 #: customer/models.py:43 templates/core/includes/navbar.html:79
-#: templates/home/cart_home.html:30
+#: templates/home/cart_home.html:55
 msgid "Addresses"
 msgstr "آدرس‌ها"
 
@@ -122,23 +122,29 @@ msgstr "فروشگاه آنلاین"
 msgid "Amirhossein Bolouk Asli"
 msgstr "امیرحسین بلوک اصلی"
 
-#: order/apps.py:8 order/models.py:29
+#: order/apps.py:8 order/models.py:30
 msgid "Order"
 msgstr "سفارش"
 
-#: order/models.py:30 templates/core/includes/navbar.html:81
+#: order/models.py:31 templates/core/includes/navbar.html:81
 msgid "Orders"
 msgstr "سفارش‌ها"
 
-#: order/models.py:45
+#: order/models.py:46
 msgid "Order Item"
 msgstr "آیتم سفارش"
 
-#: order/models.py:46
+#: order/models.py:47
 msgid "Order Items"
 msgstr "آیتم‌های سفارش"
 
-#: product/api_views.py:50
+#: order/views.py:19
+#, fuzzy
+#| msgid "Address successfully added."
+msgid "Address successfully changed."
+msgstr "آدرس با موفقیت تغییر پیدا کرد."
+
+#: product/api_views.py:66
 msgid "Product deleted from cart."
 msgstr "محصول از سبد خرید حذف شد."
 
@@ -288,7 +294,7 @@ msgstr "سبد خرید خالی است."
 
 #: templates/core/includes/_jquery.html:46 templates/core/includes/cart.html:20
 #: templates/customer/customer_order_history.html:30
-#: templates/home/cart_home.html:50
+#: templates/home/cart_home.html:74
 msgid "Pay"
 msgstr "پرداخت"
 
@@ -314,6 +320,9 @@ msgstr "خروج"
 #: templates/core/includes/product_home_view.html:13
 #: templates/core/includes/product_home_view.html:14
 #: templates/core/includes/product_home_view.html:16
+#: templates/home/cart_home.html:28 templates/home/cart_home.html:31
+#: templates/home/cart_home.html:32 templates/home/cart_home.html:34
+#: templates/home/cart_home.html:73
 #: templates/product/product_detail_view.html:54
 #: templates/product/product_detail_view.html:55
 #: templates/product/product_detail_view.html:56
@@ -322,6 +331,7 @@ msgid "Toman"
 msgstr "تومان"
 
 #: templates/core/includes/product_home_view.html:12
+#: templates/home/cart_home.html:31
 #: templates/product/product_detail_view.html:54
 msgid " Off"
 msgstr " تخفیف"
@@ -461,15 +471,25 @@ msgstr "آدرس"
 msgid " of "
 msgstr " از "
 
-#: templates/home/cart_home.html:19
+#: templates/home/cart_home.html:24
+msgid "x"
+msgstr ""
+
+#: templates/home/cart_home.html:25
+#, fuzzy
+#| msgid "Price:"
+msgid "Price"
+msgstr "قیمت:"
+
+#: templates/home/cart_home.html:44
 msgid "Off Code"
 msgstr "کد تخفیف"
 
-#: templates/home/cart_home.html:22
+#: templates/home/cart_home.html:47
 msgid "Use"
 msgstr "استفاده"
 
-#: templates/home/cart_home.html:49
+#: templates/home/cart_home.html:73
 msgid "Final Price"
 msgstr "قیمت نهایی"
 
