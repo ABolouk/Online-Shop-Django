@@ -33,5 +33,7 @@ urlpatterns = i18n_patterns(
     path('logout/', logout_view, name='logout-customer'),
     path('order/', include('order.urls', namespace='order')),
     path('cart/', views.CartView.as_view(), name="cart"),
+    path('pay/successful/', views.PayView.as_view(), name="pay_successful"),
+    path('close/successful/', views.CloseView.as_view(), name="close_successful"),
     prefix_default_language=False,
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
