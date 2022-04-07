@@ -50,9 +50,17 @@ class ProductDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
 
 
-class ProductDetailView(DetailView):
-    model = Product
-    template_name = "product/product_detail_view.html"
+class ProductDetailView(View):
+    def get(self, request, pk):
+        product = Product.objects.get(id=pk)
+        categories = Category.parents()
+        brands = Brand.objects.all()
+        context = {
+            "product": product,
+            "categories": categories,
+            "brands": brands,
+        }
+        return render(request=request, template_name="product/product_detail_view.html", context=context)
 
 
 class CategoryProductView(View):
@@ -64,10 +72,15 @@ class CategoryProductView(View):
             products = category.product_set.all()
         categories = Category.parents()
         brands = Brand.objects.all()
+        category_tab = {
+            "parent": category if category.is_parent else category.parent_category,
+            "child": None if category.is_parent else category,
+        }
         context = {
             "products": products,
             "categories": categories,
             "brands": brands,
+            "category_tab": category_tab,
         }
         return render(request=request, template_name="product/home.html", context=context)
 
@@ -82,6 +95,6 @@ class BrandProductView(View):
             "products": products,
             "categories": categories,
             "brands": brands,
+            "the_brand": brand,
         }
         return render(request=request, template_name="product/home.html", context=context)
-
