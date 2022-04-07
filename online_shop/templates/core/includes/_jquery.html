@@ -70,5 +70,26 @@
                 }
             }
         )
+        if ($('.li-item')){
+            $('#'+product_id).remove()
+        }
+    }
+
+    function addressChange(elem) {
+        let address_id = $(elem).attr("id").slice(8)
+        $.ajax({
+                url: '{% url "order:address_change" %}',
+                type: 'GET',
+                data: {
+                    "address_id": address_id
+                },
+                success: function (result) {
+                    alert(result['msg'])
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
     }
 </script>
