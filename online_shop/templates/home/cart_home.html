@@ -20,7 +20,7 @@
                 <ul class="list-group">
                     {% for orderitem in order.orderitem_set.all %}
                         <li class="list-group-item li-item" id="{{ orderitem.product.id }}">
-                            <img class="h-100" src="{{ orderitem.product.image.url }}" alt="">
+                            <a href="{% url "product:product_detail" orderitem.product.id %}"><img class="h-100" src="{{ orderitem.product.image.url }}" alt=""></a>
                             {{ orderitem.number }}{% translate "x" %} - {{ orderitem.product.name }}
                             {% translate "Price" %}:
                             {% with product=orderitem.product %}
@@ -39,14 +39,14 @@
                 </ul>
             </div>
             <div class="col-lg-4 col-12 p-2">
-{#                <div class="row w-100 m-0">#}
-{#                    <div class="input-group mb-3">#}
-{#                        <input type="text" class="form-control" placeholder="{% translate "Off Code" %}"#}
-{#                               aria-label="Recipient's username" aria-describedby="button-addon2">#}
-{#                        <button class="btn btn-outline-success" type="button"#}
-{#                                id="button-addon2">{% translate "Use" %}</button>#}
-{#                    </div>#}
-{#                </div>#}
+                {#                <div class="row w-100 m-0">#}
+                {#                    <div class="input-group mb-3">#}
+                {#                        <input type="text" class="form-control" placeholder="{% translate "Off Code" %}"#}
+                {#                               aria-label="Recipient's username" aria-describedby="button-addon2">#}
+                {#                        <button class="btn btn-outline-success" type="button"#}
+                {#                                id="button-addon2">{% translate "Use" %}</button>#}
+                {#                    </div>#}
+                {#                </div>#}
 
                 <div class="row w-100 m-0 mb-2">
                     <div class="dropdown w-100">
@@ -71,7 +71,17 @@
         <div class="row justify-content-center">
             <p class="w-auto align-self-center m-0"
                id="final-price">{% translate "Final Price" %}: {{ order.total_price }} {% translate "Toman" %}</p>
-            <a href="#" class="btn btn-primary w-auto">{% translate "Pay" %}</a>
+
+            <div class="dropdown w-auto">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                    {% translate "Pay" %}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="{% url "pay_successful" %}">{% translate "Online" %}</a></li>
+                    <li><a class="dropdown-item" href="{% url "close_successful" %}">{% translate "On Location" %}</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 {% endblock %}
