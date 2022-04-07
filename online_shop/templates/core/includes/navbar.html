@@ -33,7 +33,7 @@
                                 {% for child in category.children %}
                                     <li>
                                         <a class="dropdown-item"
-                                           href="{% url "product:category" child.id %}">- {{ child.name }}</a>
+                                           href="{% url "product:category" child.id %}">> {{ child.name }}</a>
                                     </li>
                                 {% endfor %}
                                 {% if not forloop.last %}
