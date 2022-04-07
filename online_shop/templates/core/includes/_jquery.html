@@ -43,7 +43,7 @@
                     if (cart_html === '') {
                         cart_html = '<li class="dropdown-item">{% translate "Cart is empty." %}</li>'
                     }
-                    cart_html = cart_html + '<li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-center bg-warning rounded" href="#">{% translate "Pay" %}</a></li>'
+                    cart_html = cart_html + '<li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-center bg-warning rounded" href="{% url "cart" %}">{% translate "Pay" %}</a></li>'
                     $("#cart-ul").html(cart_html)
                 },
                 error: function () {
