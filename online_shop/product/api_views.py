@@ -32,3 +32,9 @@ class AddToCart(APIView):
         except:
             request.session["cart"] = {product_id: {"number": number, "name": Product.objects.get(id=product_id).name}}
         return Response(data=serializer.data)
+
+
+class GetCart(APIView):
+    def get(self, request):
+        data = request.session.get("cart", None)
+        return Response(data=data)
