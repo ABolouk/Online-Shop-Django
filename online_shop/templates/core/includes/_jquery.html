@@ -25,5 +25,31 @@
         )
     }
 
-
+    function updateCart() {
+        $.ajax({
+                url: '{% url "product:get_cart" %}',
+                type: 'GET',
+                data: {},
+                success: function (result) {
+                    console.log(result)
+                    let row
+                    let cart_html = ''
+                    Object.keys(result).forEach(key => {
+                        let product = result[key]
+                        let delete_button = '<a href="#" id="delete-' + key + '" onclick="deleteFromCart(this)" class="ms-1 btn btn-danger">{% translate "Del" %}</a>'
+                        row = '<li class="dropdown-item">' + product.number + ' of ' + product.name + delete_button + '</li>'
+                        cart_html = cart_html + row
+                    })
+                    if (cart_html === '') {
+                        cart_html = '<li class="dropdown-item">{% translate "Cart is empty." %}</li>'
+                    }
+                    cart_html = cart_html + '<li> <hr class="dropdown-divider"></li><li><a class="dropdown-item text-center bg-warning rounded" href="#">Pay</a></li>'
+                    $("#cart-ul").html(cart_html)
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
+    }
 </script>
