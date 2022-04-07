@@ -38,7 +38,7 @@
             <div class="col-md-3 col-12 image"><img style="object-fit: cover; height: 14rem;"
                                                     src="{{ product.image.url }}"
                                                     alt="product-{{ product.id }}"></div>
-            <div class="col-md-9 col-12">
+            <div class="col-md-9 col-12" id="{{ product.id }}">
                 <div class="container p-3 rounded">
                     <div class="row">
                         {# name #}
@@ -57,7 +57,14 @@
                         {% else %}
                             <h5>{{ product.price }} {% translate "Toman" %}</h5>
                         {% endif %}
-                        {# detail #}
+                        {# add to cart #}
+                        <div class="row justify-content-center">
+                            {# <a href="#" class="col-auto btn btn-outline-danger">{% translate "-" %}</a>#}
+                            <input class="col-md-4 col-auto text-center item-number" type="number" min="0" value="1">
+                            <div class="col-auto btn btn-outline-success"
+                                 onclick="AddToCart(this)">{% translate "Add" %}</div>
+                        </div>
+                    {# detail #}
                         <p><b>{% translate "Info" %}: </b> <br>{{ product.detail }}</p>
                     </div>
                 </div>
