@@ -47,3 +47,47 @@ class CartView(PermissionRequiredMixin, View):
             "brands": brands,
         }
         return render(request, template_name="home/cart_home.html", context=context)
+
+
+class PayView(LoginRequiredMixin, View):
+    def get(self, request):
+        customer = request.user.customer
+        order = customer.order_set.get(is_open=True)
+
+        order.is_open = False
+        order.is_paid = True
+        order.save()
+
+        request.session.pop('cart')
+
+        categories = Category.parents()
+        brands = Brand.objects.all()
+        context = {
+            "categories": categories,
+            "brands": brands,
+        }
+        return render(request=request,
+                      template_name="home/pay_successful.html",
+                      context=context)
+
+
+class CloseView(LoginRequiredMixin, View):
+    def get(self, request):
+        customer = request.user.customer
+        order = customer.order_set.get(is_open=True)
+
+        order.is_open = False
+        order.is_paid = False
+        order.save()
+
+        request.session.pop('cart')
+
+        categories = Category.parents()
+        brands = Brand.objects.all()
+        context = {
+            "categories": categories,
+            "brands": brands,
+        }
+        return render(request=request,
+                      template_name="home/close_successful.html",
+                      context=context)
