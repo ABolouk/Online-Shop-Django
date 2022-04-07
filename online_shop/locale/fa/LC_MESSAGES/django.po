@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 22:12+0000\n"
+"POT-Creation-Date: 2022-04-07 22:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -294,7 +294,7 @@ msgstr "سبد خرید خالی است."
 
 #: templates/core/includes/_jquery.html:46 templates/core/includes/cart.html:20
 #: templates/customer/customer_order_history.html:30
-#: templates/home/cart_home.html:74
+#: templates/home/cart_home.html:78
 msgid "Pay"
 msgstr "پرداخت"
 
@@ -481,17 +481,41 @@ msgstr ""
 msgid "Price"
 msgstr "قیمت:"
 
-#: templates/home/cart_home.html:44
-msgid "Off Code"
-msgstr "کد تخفیف"
-
-#: templates/home/cart_home.html:47
-msgid "Use"
-msgstr "استفاده"
-
 #: templates/home/cart_home.html:73
 msgid "Final Price"
 msgstr "قیمت نهایی"
+
+#: templates/home/cart_home.html:81
+#, fuzzy
+#| msgid "Online Shop"
+msgid "Online"
+msgstr "آنلاین"
+
+#: templates/home/cart_home.html:82
+msgid "On Location"
+msgstr "در محل"
+
+#: templates/home/close_successful.html:8 templates/home/pay_successful.html:9
+msgid "Thank you for your purchase."
+msgstr "از خرید شما ممنونیم."
+
+#: templates/home/close_successful.html:9 templates/home/pay_successful.html:10
+#, fuzzy
+#| msgid "Online Shop"
+msgid "Back to Online-Shop"
+msgstr "بازگشت به فروشگاه آنلاین"
+
+#: templates/home/pay_successful.html:8
+#, fuzzy
+#| msgid "Password changed successfully."
+msgid "Your order has been successfully paid."
+msgstr "سفارش شما با موفقیت پرداخت شد."
+
+#~ msgid "Off Code"
+#~ msgstr "کد تخفیف"
+
+#~ msgid "Use"
+#~ msgstr "استفاده"
 
 #, fuzzy
 #~| msgid "Category"

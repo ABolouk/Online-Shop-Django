@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 22:12+0000\n"
+"POT-Creation-Date: 2022-04-07 22:55+0000\n"
 "PO-Revision-Date: 2022-04-03 18:43+0000\n"
 "Last-Translator: amirhossein bolouk asli <amirhosseinbolouk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -275,7 +275,7 @@ msgstr ""
 
 #: templates/core/includes/_jquery.html:46 templates/core/includes/cart.html:20
 #: templates/customer/customer_order_history.html:30
-#: templates/home/cart_home.html:74
+#: templates/home/cart_home.html:78
 msgid "Pay"
 msgstr ""
 
@@ -434,14 +434,26 @@ msgstr ""
 msgid "Price"
 msgstr ""
 
-#: templates/home/cart_home.html:44
-msgid "Off Code"
-msgstr ""
-
-#: templates/home/cart_home.html:47
-msgid "Use"
-msgstr ""
-
 #: templates/home/cart_home.html:73
 msgid "Final Price"
+msgstr ""
+
+#: templates/home/cart_home.html:81
+msgid "Online"
+msgstr ""
+
+#: templates/home/cart_home.html:82
+msgid "On Location"
+msgstr ""
+
+#: templates/home/close_successful.html:8 templates/home/pay_successful.html:9
+msgid "Thank you for your purchase."
+msgstr ""
+
+#: templates/home/close_successful.html:9 templates/home/pay_successful.html:10
+msgid "Back to Online-Shop"
+msgstr ""
+
+#: templates/home/pay_successful.html:8
+msgid "Your order has been successfully paid."
 msgstr ""
