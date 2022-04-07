@@ -36,10 +36,10 @@
                         {# name #}
                         <h1 class="align-self-end">{{ product.name }}</h1>
                         {# brand #}
-                        <h5>{% translate "Brand: " %}<a
+                        <h5>{% translate "Brand" %}:<a
                                 href="{% url "product:brand" product.brand.id %}">{{ product.brand }}</a></h5>
                         {# price and discount #}
-                        <h4>{% translate "Price: " %}</h4>
+                        <h4>{% translate "Price:" %}</h4>
                         {% if product.discount %}
                             <h6 style="color: red">
                                 {{ product.discount.amount }}{% if product.discount.type == "PER" %}%{% else %}
