@@ -7,10 +7,17 @@
     <div class="card-body">
         <h5 class="card-title">{{ product.name }}</h5>
         {#        <p class="card-text">{{ product.detail|truncatechars:20 }}</p>#}
-        <h5 class="card-text">{{ product.price }} Toman</h5>
+        {% if product.discount %}
+            <h6 style="color: red">{{ product.discount.amount }}{% if product.discount.type == "PER" %}%{% else %}
+                {% translate "Toman" %}{% endif %}{% translate " Off" %}</h6>
+            <del><h6 class="card-text">{{ product.price }} {% translate "Toman" %}</h6></del>
+            <h5 class="card-text">{{ product.final_price }} {% translate "Toman" %}</h5>
+        {% else %}
+            <h5 class="card-text">{{ product.price }} Toman</h5>
+        {% endif %}
         <div class="container-fluid">
             <div class="row justify-content-center">
-{#                <a href="#" class="col-auto btn btn-outline-danger">{% translate "-" %}</a>#}
+                {#                <a href="#" class="col-auto btn btn-outline-danger">{% translate "-" %}</a>#}
                 <input class="col-md-4 col-auto text-center" type="number" min="0" value="1">
                 <a href="#" class="col-auto btn btn-outline-success">{% translate "Add" %}</a>
             </div>
