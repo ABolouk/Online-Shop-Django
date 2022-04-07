@@ -2,6 +2,59 @@
 {% load static %}
 {% load i18n %}
 
+{% block extera_css %}
+    <style>
+        a {
+            text-decoration: none;
+        }
 
+        .container {
+            background-color: #e9e7e7;
+        }
 
+        .image {
+
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            {# category #}
+            <p>
+                <a href="{% url "product:category" product.category.parent_category.id %}">{{ product.category.parent_category }}</a>
+                /
+                <a href="{% url "product:category" product.category.id %}">{{ product.category }}</a>
+            </p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-12 image"><img style="object-fit: cover; height: 14rem;" src="{{ product.image.url }}"
+                                    alt="product-{{ product.id }}"></div>
+            <div class="col-md-9 col-12">
+                <div class="container p-3 rounded">
+                    <div class="row">
+                        {# name #}
+                        <h1 class="align-self-end">{{ product.name }}</h1>
+                        {# brand #}
+                        <h5>{% translate "Brand: " %}<a
+                                href="{% url "product:brand" product.brand.id %}">{{ product.brand }}</a></h5>
+                        {# price and discount #}
+                        <h4>{% translate "Price: " %}</h4>
+                        {% if product.discount %}
+                            <h6 style="color: red">
+                                {{ product.discount.amount }}{% if product.discount.type == "PER" %}%{% else %}
+                                    {% translate "Toman" %}{% endif %}{% translate " Off" %}</h6>
+                            <del><h6>{{ product.price }} {% translate "Toman" %}</h6></del>
+                            <h5>{{ product.final_price }} {% translate "Toman" %}</h5>
+                        {% else %}
+                            <h5>{{ product.price }} {% translate "Toman" %}</h5>
+                        {% endif %}
+                        {# detail #}
+                        <p><b>{% translate "Detail: " %}</b>    <br>{{ product.detail }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
