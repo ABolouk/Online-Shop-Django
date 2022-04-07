@@ -9,7 +9,7 @@ class OrderItemAdmin(admin.ModelAdmin):
 
 
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('customer', 'address', 'is_paid')
+    list_display = ('customer', 'address', 'is_open', 'is_paid')
     search_fields = ('customer', 'address')
     list_filter = ('off_code', 'is_paid')
 
