@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 09:54+0000\n"
+"POT-Creation-Date: 2022-04-07 10:38+0000\n"
 "PO-Revision-Date: 2022-04-03 18:43+0000\n"
 "Last-Translator: amirhossein bolouk asli <amirhosseinbolouk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,7 +168,8 @@ msgstr ""
 msgid "You can add this category under another one."
 msgstr ""
 
-#: product/models.py:73
+#: product/models.py:73 templates/product/home.html:20
+#: templates/product/product_detail_view.html:25
 msgid "Category"
 msgstr ""
 
@@ -176,7 +177,8 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
-#: product/models.py:84 templates/product/product_detail_view.html:39
+#: product/models.py:84 templates/product/home.html:32
+#: templates/product/product_detail_view.html:47
 msgid "Brand"
 msgstr ""
 
@@ -258,6 +260,10 @@ msgstr ""
 msgid "Cart"
 msgstr ""
 
+#: templates/core/includes/cart.html:16
+msgid "Cart is empty."
+msgstr ""
+
 #: templates/core/includes/navbar.html:21
 msgid "Home"
 msgstr ""
@@ -274,15 +280,15 @@ msgstr ""
 #: templates/core/includes/product_home_view.html:13
 #: templates/core/includes/product_home_view.html:14
 #: templates/core/includes/product_home_view.html:16
-#: templates/product/product_detail_view.html:46
-#: templates/product/product_detail_view.html:47
-#: templates/product/product_detail_view.html:48
-#: templates/product/product_detail_view.html:50
+#: templates/product/product_detail_view.html:54
+#: templates/product/product_detail_view.html:55
+#: templates/product/product_detail_view.html:56
+#: templates/product/product_detail_view.html:58
 msgid "Toman"
 msgstr ""
 
 #: templates/core/includes/product_home_view.html:12
-#: templates/product/product_detail_view.html:46
+#: templates/product/product_detail_view.html:54
 msgid " Off"
 msgstr ""
 
@@ -292,6 +298,7 @@ msgid "Add"
 msgstr ""
 
 #: templates/core/includes/product_home_view.html:25
+#: templates/product/product_detail_view.html:61
 msgid "Info"
 msgstr ""
 
@@ -339,7 +346,7 @@ msgstr ""
 
 #: templates/customer/customer_order_history.html:26
 #: templates/customer/order_items.html:18
-#: templates/product/product_detail_view.html:42
+#: templates/product/product_detail_view.html:50
 msgid "Price:"
 msgstr ""
 
@@ -397,16 +404,4 @@ msgstr ""
 
 #: templates/customer/order_items.html:16
 msgid " of "
-msgstr ""
-
-#: templates/product/home.html:19
-msgid "Category: "
-msgstr ""
-
-#: templates/product/home.html:31
-msgid "Brand: "
-msgstr ""
-
-#: templates/product/product_detail_view.html:53
-msgid "Detail: "
 msgstr ""
