@@ -1,7 +1,7 @@
 {% load i18n %}
 
 <div id="{{ product.id }}" class="card col-md-3 col-5 p-1 text-center" style="background: #ededed">
-    <a href="" style="text-decoration: None;">
+    <a href="{% url "product:detail" product.id %}" style="text-decoration: None;">
         <img style="object-fit: cover; height: 14rem;" src="{{ product.image.url }}" class="card-img-top"
              alt="product-{{ product.id }}"></a>
     <div class="card-body">
@@ -13,7 +13,7 @@
             <del><h6 class="card-text">{{ product.price }} {% translate "Toman" %}</h6></del>
             <h5 class="card-text">{{ product.final_price }} {% translate "Toman" %}</h5>
         {% else %}
-            <h5 class="card-text">{{ product.price }} Toman</h5>
+            <h5 class="card-text">{{ product.price }} {% translate "Toman" %}</h5>
         {% endif %}
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -22,7 +22,7 @@
                 <a href="#" class="col-auto btn btn-outline-success">{% translate "Add" %}</a>
             </div>
             <div class="row mt-2 justify-content-center">
-                <a href="#" class="col-auto btn btn-info">{% translate "Info" %}</a>
+                <a href="{% url "product:detail" product.id %}" class="col-auto btn btn-info">{% translate "Info" %}</a>
             </div>
         </div>
     </div>
