@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-03 18:36+0000\n"
+"POT-Creation-Date: 2022-04-07 09:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,7 +90,7 @@ msgstr "مشتریان"
 msgid "Address"
 msgstr "آدرس"
 
-#: customer/models.py:43 templates/core/includes/navbar.html:22
+#: customer/models.py:43 templates/core/includes/navbar.html:79
 msgid "Addresses"
 msgstr "آدرس‌ها"
 
@@ -112,7 +112,8 @@ msgstr "آدرس با موفقیت اضافه شد."
 msgid "Address Deleted."
 msgstr "آدرس‌ها"
 
-#: online_shop/settings.py:16
+#: online_shop/settings.py:16 templates/core/includes/navbar.html:9
+#: templates/product/home.html:6
 msgid "Online Shop"
 msgstr "فروشگاه آنلاین"
 
@@ -124,7 +125,7 @@ msgstr "امیرحسین بلوک اصلی"
 msgid "Order"
 msgstr "سفارش"
 
-#: order/models.py:30 templates/core/includes/navbar.html:26
+#: order/models.py:30 templates/core/includes/navbar.html:81
 msgid "Orders"
 msgstr "سفارش‌ها"
 
@@ -136,63 +137,63 @@ msgstr "آیتم سفارش"
 msgid "Order Items"
 msgstr "آیتم‌های سفارش"
 
-#: product/apps.py:8 product/models.py:88
+#: product/apps.py:8 product/models.py:105
 msgid "Product"
 msgstr "محصول"
 
-#: product/models.py:16
+#: product/models.py:17
 msgid "Percentage Discount"
 msgstr "تخفیف درصدی"
 
-#: product/models.py:17
+#: product/models.py:18
 msgid "Value Discount"
 msgstr "تخفیف مقداری"
 
-#: product/models.py:31
+#: product/models.py:32
 msgid "A name for discount."
 msgstr "نامی برای تخفیف."
 
-#: product/models.py:34
+#: product/models.py:35
 msgid "Discount"
 msgstr "تخفیف"
 
-#: product/models.py:35
+#: product/models.py:36
 msgid "Discounts"
 msgstr "تخفیف‌ها"
 
-#: product/models.py:39
+#: product/models.py:40
 msgid "Code that validates the discount."
 msgstr "کدی که برای شناسایی تخفیف استفاده می‌شود."
 
-#: product/models.py:42
+#: product/models.py:43
 msgid "Discount Code"
 msgstr "کد تخفیف"
 
-#: product/models.py:43
+#: product/models.py:44
 msgid "Discount Codes"
 msgstr "کدهای تخفیف"
 
-#: product/models.py:50
+#: product/models.py:52
 msgid "You can add this category under another one."
 msgstr "می‌توانید این دسته‌بندی را زیرمجموعه دسته‌بندی دیگری قرار دهید."
 
-#: product/models.py:56
+#: product/models.py:73
 msgid "Category"
 msgstr "دسته‌بندی"
 
-#: product/models.py:57
+#: product/models.py:74 templates/core/includes/navbar.html:27
 msgid "Categories"
 msgstr "دسته‌بندی‌ها"
 
-#: product/models.py:67
+#: product/models.py:84 templates/product/product_detail_view.html:39
 msgid "Brand"
 msgstr "برند"
 
-#: product/models.py:68
+#: product/models.py:85 templates/core/includes/navbar.html:50
 msgid "Brands"
 msgstr "برندها"
 
-#: product/models.py:89
+#: product/models.py:106
 msgid "Products"
 msgstr "محصولات"
 
@@ -252,30 +253,66 @@ msgstr "بستن"
 msgid "Register Customer"
 msgstr "مشتری"
 
-#: templates/core/customer_register.html:13
-#: templates/core/includes/navbar.html:33
+#: templates/core/customer_register.html:16
+#: templates/core/includes/navbar.html:90 templates/core/login_customer.html:20
 msgid "Register"
 msgstr "ثبت نام"
 
-#: templates/core/includes/navbar.html:13
-msgid "Home"
-msgstr "خانه"
+#: templates/core/customer_register.html:19
+msgid "Already a member? "
+msgstr "ثبت نام کرده بودید؟"
 
-#: templates/core/includes/navbar.html:18
-#, fuzzy
-#| msgid "See Profile"
-msgid "Profile"
-msgstr "پروفایل"
-
-#: templates/core/includes/navbar.html:29
-msgid "Logout"
-msgstr "خروج"
-
-#: templates/core/includes/navbar.html:36
+#: templates/core/customer_register.html:20
+#: templates/core/includes/navbar.html:92
 #, fuzzy
 #| msgid "login"
 msgid "Login"
 msgstr "ورود"
+
+#: templates/core/includes/cart.html:5
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: templates/core/includes/navbar.html:21
+msgid "Home"
+msgstr "خانه"
+
+#: templates/core/includes/navbar.html:74
+#, fuzzy
+#| msgid "See Profile"
+msgid "My Profile"
+msgstr "پروفایل"
+
+#: templates/core/includes/navbar.html:83
+msgid "Logout"
+msgstr "خروج"
+
+#: templates/core/includes/product_home_view.html:12
+#: templates/core/includes/product_home_view.html:13
+#: templates/core/includes/product_home_view.html:14
+#: templates/core/includes/product_home_view.html:16
+#: templates/product/product_detail_view.html:46
+#: templates/product/product_detail_view.html:47
+#: templates/product/product_detail_view.html:48
+#: templates/product/product_detail_view.html:50
+msgid "Toman"
+msgstr "تومان"
+
+#: templates/core/includes/product_home_view.html:12
+#: templates/product/product_detail_view.html:46
+msgid " Off"
+msgstr " تخفیف"
+
+#: templates/core/includes/product_home_view.html:22
+#: templates/customer/add_address.html:13
+#, fuzzy
+#| msgid "Address"
+msgid "Add"
+msgstr "اضافه کردن"
+
+#: templates/core/includes/product_home_view.html:25
+msgid "Info"
+msgstr "اطلاعات بیشتر"
 
 #: templates/core/login_customer.html:5
 #, fuzzy
@@ -283,21 +320,19 @@ msgstr "ورود"
 msgid "Login Customer"
 msgstr "ورود مشتری"
 
-#: templates/core/login_customer.html:13
+#: templates/core/login_customer.html:16
 msgid "login"
 msgstr "ورود"
+
+#: templates/core/login_customer.html:19
+msgid "Not a member? "
+msgstr "عضو نشده‌اید؟"
 
 #: templates/customer/add_address.html:6
 #: templates/customer/customer_address.html:8
 #, fuzzy
 #| msgid "Address"
 msgid "Add Address"
-msgstr "آدرس"
-
-#: templates/customer/add_address.html:13
-#, fuzzy
-#| msgid "Address"
-msgid "Add"
 msgstr "آدرس"
 
 #: templates/customer/change_password.html:6
@@ -331,6 +366,7 @@ msgstr "به: "
 
 #: templates/customer/customer_order_history.html:26
 #: templates/customer/order_items.html:18
+#: templates/product/product_detail_view.html:42
 msgid "Price:"
 msgstr "قیمت:"
 
@@ -403,6 +439,29 @@ msgstr "آدرس"
 #: templates/customer/order_items.html:16
 msgid " of "
 msgstr " از "
+
+#: templates/product/home.html:19
+#, fuzzy
+#| msgid "Category"
+msgid "Category: "
+msgstr "دسته‌بندی"
+
+#: templates/product/home.html:31
+#, fuzzy
+#| msgid "Brand"
+msgid "Brand: "
+msgstr "برند: "
+
+#: templates/product/product_detail_view.html:53
+#, fuzzy
+#| msgid "Email: "
+msgid "Detail: "
+msgstr "جزئیات: "
+
+#, fuzzy
+#~| msgid "Price:"
+#~ msgid "Price: "
+#~ msgstr "قیمت: "
 
 #, fuzzy
 #~| msgid "Dashboard"
