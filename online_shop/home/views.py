@@ -15,3 +15,16 @@ class HomeView(View):
             "brands": brands,
         }
         return render(request, template_name="product/home.html", context=context)
+
+
+class CartView(View):
+    def get(self, request):
+        products = Product.objects.all()
+        categories = Category.parents()
+        brands = Brand.objects.all()
+        context = {
+            "products": products,
+            "categories": categories,
+            "brands": brands,
+        }
+        return render(request, template_name="home/cart_home.html", context=context)
