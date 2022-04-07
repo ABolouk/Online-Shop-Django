@@ -1,4 +1,29 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% load i18n %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
+    function AddToCart(elem) {
+        let product_id = $(elem).parent().parent().parent().parent().attr('id')
+        let number = $(elem).parent().find('.item-number').val()
+        console.log(product_id, number)
+        $.ajax({
+                url: '{% url "product:add_to_cart" %}',
+                type: 'GET',
+                data: {
+                    'product_id': product_id,
+                    'number': number,
+                },
+                success: function (result) {
+                    console.log(number + ' ' + result['name'] + 'added to cart.')
+                    updateCart()
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
+    }
+
 
 </script>
