@@ -52,4 +52,23 @@
             }
         )
     }
+
+    function deleteFromCart(elem) {
+        let product_id = $(elem).attr("id").slice(7)
+        $.ajax({
+                url: '{% url "product:delete_from_cart" %}',
+                type: 'GET',
+                data: {
+                    "product_id": product_id
+                },
+                success: function (result) {
+                    alert(result['msg'])
+                    updateCart()
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
+    }
 </script>
