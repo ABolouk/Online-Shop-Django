@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 18:53+0000\n"
+"POT-Creation-Date: 2022-04-07 20:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,6 +91,7 @@ msgid "Address"
 msgstr "آدرس"
 
 #: customer/models.py:43 templates/core/includes/navbar.html:79
+#: templates/home/cart_home.html:30
 msgid "Addresses"
 msgstr "آدرس‌ها"
 
@@ -260,7 +261,7 @@ msgid "Register Customer"
 msgstr "مشتری"
 
 #: templates/core/customer_register.html:16
-#: templates/core/includes/navbar.html:90 templates/core/login_customer.html:20
+#: templates/core/includes/navbar.html:88 templates/core/login_customer.html:20
 msgid "Register"
 msgstr "ثبت نام"
 
@@ -269,7 +270,7 @@ msgid "Already a member? "
 msgstr "ثبت نام کرده بودید؟"
 
 #: templates/core/customer_register.html:20
-#: templates/core/includes/navbar.html:92
+#: templates/core/includes/navbar.html:90
 #, fuzzy
 #| msgid "login"
 msgid "Login"
@@ -284,6 +285,11 @@ msgstr "پاک"
 #: templates/core/includes/_jquery.html:44 templates/core/includes/cart.html:15
 msgid "Cart is empty."
 msgstr "سبد خرید خالی است."
+
+#: templates/core/includes/_jquery.html:46 templates/core/includes/cart.html:20
+#: templates/customer/customer_order_history.html:30
+msgid "Pay"
+msgstr "پرداخت"
 
 #: templates/core/includes/cart.html:5
 msgid "Cart"
@@ -394,10 +400,6 @@ msgstr "قیمت:"
 msgid "Paid"
 msgstr "پرداخت شده"
 
-#: templates/customer/customer_order_history.html:30
-msgid "Pay"
-msgstr "بپرداز"
-
 #: templates/customer/customer_profile.html:6
 #, fuzzy
 #| msgid "Customer"
@@ -457,6 +459,14 @@ msgstr "آدرس"
 #: templates/customer/order_items.html:16
 msgid " of "
 msgstr " از "
+
+#: templates/home/cart_home.html:19
+msgid "Off Code"
+msgstr "کد تخفیف"
+
+#: templates/home/cart_home.html:22
+msgid "Use"
+msgstr "استفاده"
 
 #, fuzzy
 #~| msgid "Category"
