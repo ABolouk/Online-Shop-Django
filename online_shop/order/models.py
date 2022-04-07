@@ -13,6 +13,7 @@ class Order(BaseModel):
     off_code = models.ForeignKey(to=OffCode, null=True, blank=True, on_delete=models.SET_NULL)
     address = models.ForeignKey(to=Address, on_delete=models.CASCADE)
 
+    is_open = models.BooleanField(default=True)
     is_paid = models.BooleanField(default=False)
 
     def total_price(self):
