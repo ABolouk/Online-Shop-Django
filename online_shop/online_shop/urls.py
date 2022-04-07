@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 
 from core.views import CustomerRegisterView, CustomerLoginView, logout_view
+from home import views
 
 urlpatterns = i18n_patterns(
     path("", include('home.urls', namespace='home')),
@@ -31,5 +32,6 @@ urlpatterns = i18n_patterns(
     path('login/', CustomerLoginView.as_view(), name='login-customer'),
     path('logout/', logout_view, name='logout-customer'),
     path('order/', include('order.urls', namespace='order')),
+    path('cart/', views.CartView.as_view(), name="cart"),
     prefix_default_language=False,
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
