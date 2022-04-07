@@ -38,3 +38,13 @@ class GetCart(APIView):
     def get(self, request):
         data = request.session.get("cart", None)
         return Response(data=data)
+
+
+class DeleteFromCart(APIView):
+    def get(self, request):
+        data = request.session["cart"]
+        request.session.pop("cart")
+        product_id = request.query_params['product_id']
+        data.pop(product_id)
+        request.session["cart"] = data
+        return Response({"msg": _("Product deleted from cart.")})
