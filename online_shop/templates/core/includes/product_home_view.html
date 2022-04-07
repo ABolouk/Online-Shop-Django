@@ -17,12 +17,12 @@
         {% endif %}
         <div class="container-fluid">
             <div class="row justify-content-center">
-                {#                <a href="#" class="col-auto btn btn-outline-danger">{% translate "-" %}</a>#}
-                <input class="col-md-4 col-auto text-center" type="number" min="0" value="1">
-                <a href="#" class="col-auto btn btn-outline-success">{% translate "Add" %}</a>
-            </div>
-            <div class="row mt-2 justify-content-center">
-                <a href="{% url "product:detail" product.id %}" class="col-auto btn btn-info">{% translate "Info" %}</a>
+                {# <a href="#" class="col-auto btn btn-outline-danger">{% translate "-" %}</a>#}
+                 <input class="col-md-4 col-auto text-center item-number" type="number" min="0" value="1">
+                <div class="col-auto btn btn-outline-success" onclick="AddToCart(this)">{% translate "Add" %}</div>
+
+                <a href="{% url "product:detail" product.id %}"
+                   class="col-auto btn btn-info ms-2">{% translate "Info" %}</a>
             </div>
         </div>
     </div>
