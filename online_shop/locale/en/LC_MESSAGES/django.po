@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:38+0000\n"
+"POT-Creation-Date: 2022-04-07 18:53+0000\n"
 "PO-Revision-Date: 2022-04-03 18:43+0000\n"
 "Last-Translator: amirhossein bolouk asli <amirhosseinbolouk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,6 +126,10 @@ msgstr ""
 
 #: order/models.py:46
 msgid "Order Items"
+msgstr ""
+
+#: product/api_views.py:50
+msgid "Product deleted from cart."
 msgstr ""
 
 #: product/apps.py:8 product/models.py:105
@@ -256,12 +260,16 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: templates/core/includes/cart.html:5
-msgid "Cart"
+#: templates/core/includes/_jquery.html:39 templates/core/includes/cart.html:12
+msgid "Del"
 msgstr ""
 
-#: templates/core/includes/cart.html:16
+#: templates/core/includes/_jquery.html:44 templates/core/includes/cart.html:15
 msgid "Cart is empty."
+msgstr ""
+
+#: templates/core/includes/cart.html:5
+msgid "Cart"
 msgstr ""
 
 #: templates/core/includes/navbar.html:21
@@ -294,11 +302,12 @@ msgstr ""
 
 #: templates/core/includes/product_home_view.html:22
 #: templates/customer/add_address.html:13
+#: templates/product/product_detail_view.html:65
 msgid "Add"
 msgstr ""
 
 #: templates/core/includes/product_home_view.html:25
-#: templates/product/product_detail_view.html:61
+#: templates/product/product_detail_view.html:68
 msgid "Info"
 msgstr ""
 

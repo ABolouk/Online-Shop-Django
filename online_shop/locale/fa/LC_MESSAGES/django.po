@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 10:38+0000\n"
+"POT-Creation-Date: 2022-04-07 18:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,6 +136,10 @@ msgstr "آیتم سفارش"
 #: order/models.py:46
 msgid "Order Items"
 msgstr "آیتم‌های سفارش"
+
+#: product/api_views.py:50
+msgid "Product deleted from cart."
+msgstr "محصول از سبد خرید حذف شد."
 
 #: product/apps.py:8 product/models.py:105
 msgid "Product"
@@ -271,13 +275,19 @@ msgstr "ثبت نام کرده بودید؟"
 msgid "Login"
 msgstr "ورود"
 
+#: templates/core/includes/_jquery.html:39 templates/core/includes/cart.html:12
+#, fuzzy
+#| msgid "Delete"
+msgid "Del"
+msgstr "پاک"
+
+#: templates/core/includes/_jquery.html:44 templates/core/includes/cart.html:15
+msgid "Cart is empty."
+msgstr "سبد خرید خالی است."
+
 #: templates/core/includes/cart.html:5
 msgid "Cart"
 msgstr "سبد خرید"
-
-#: templates/core/includes/cart.html:16
-msgid "Cart is empty."
-msgstr "سبد خرید خالی است."
 
 #: templates/core/includes/navbar.html:21
 msgid "Home"
@@ -311,13 +321,14 @@ msgstr " تخفیف"
 
 #: templates/core/includes/product_home_view.html:22
 #: templates/customer/add_address.html:13
+#: templates/product/product_detail_view.html:65
 #, fuzzy
 #| msgid "Address"
 msgid "Add"
 msgstr "اضافه کردن"
 
 #: templates/core/includes/product_home_view.html:25
-#: templates/product/product_detail_view.html:61
+#: templates/product/product_detail_view.html:68
 msgid "Info"
 msgstr "اطلاعات بیشتر"
 
