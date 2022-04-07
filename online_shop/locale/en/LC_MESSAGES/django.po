@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 20:43+0000\n"
+"POT-Creation-Date: 2022-04-07 20:45+0000\n"
 "PO-Revision-Date: 2022-04-03 18:43+0000\n"
 "Last-Translator: amirhossein bolouk asli <amirhosseinbolouk@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -271,6 +271,7 @@ msgstr ""
 
 #: templates/core/includes/_jquery.html:46 templates/core/includes/cart.html:20
 #: templates/customer/customer_order_history.html:30
+#: templates/home/cart_home.html:50
 msgid "Pay"
 msgstr ""
 
@@ -423,4 +424,8 @@ msgstr ""
 
 #: templates/home/cart_home.html:22
 msgid "Use"
+msgstr ""
+
+#: templates/home/cart_home.html:49
+msgid "Final Price"
 msgstr ""

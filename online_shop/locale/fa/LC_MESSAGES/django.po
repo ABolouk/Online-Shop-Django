@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-04-07 20:43+0000\n"
+"POT-Creation-Date: 2022-04-07 20:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -288,6 +288,7 @@ msgstr "سبد خرید خالی است."
 
 #: templates/core/includes/_jquery.html:46 templates/core/includes/cart.html:20
 #: templates/customer/customer_order_history.html:30
+#: templates/home/cart_home.html:50
 msgid "Pay"
 msgstr "پرداخت"
 
@@ -467,6 +468,10 @@ msgstr "کد تخفیف"
 #: templates/home/cart_home.html:22
 msgid "Use"
 msgstr "استفاده"
+
+#: templates/home/cart_home.html:49
+msgid "Final Price"
+msgstr "قیمت نهایی"
 
 #, fuzzy
 #~| msgid "Category"
