@@ -6,6 +6,7 @@
     <style>
         a {
             text-decoration: none;
+            color: black;
         }
 
         .container {
@@ -21,15 +22,22 @@
     <div class="container-fluid">
         <div class="row">
             {# category #}
-            <p>
-                <a href="{% url "product:category" product.category.parent_category.id %}">{{ product.category.parent_category }}</a>
-                /
-                <a href="{% url "product:category" product.category.id %}">{{ product.category }}</a>
+            <p>{% translate "Category" %}:
+                {% if request.LANGUAGE_CODE == "fa" %}
+                    <a href="{% url "product:category" product.category.id %}">{{ product.category }}</a>
+                    /
+                    <a href="{% url "product:category" product.category.parent_category.id %}">{{ product.category.parent_category }}</a>
+                {% else %}
+                    <a href="{% url "product:category" product.category.parent_category.id %}">{{ product.category.parent_category }}</a>
+                    /
+                    <a href="{% url "product:category" product.category.id %}">{{ product.category }}</a>
+                {% endif %}
             </p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-3 col-12 image"><img style="object-fit: cover; height: 14rem;" src="{{ product.image.url }}"
-                                    alt="product-{{ product.id }}"></div>
+            <div class="col-md-3 col-12 image"><img style="object-fit: cover; height: 14rem;"
+                                                    src="{{ product.image.url }}"
+                                                    alt="product-{{ product.id }}"></div>
             <div class="col-md-9 col-12">
                 <div class="container p-3 rounded">
                     <div class="row">
@@ -50,7 +58,7 @@
                             <h5>{{ product.price }} {% translate "Toman" %}</h5>
                         {% endif %}
                         {# detail #}
-                        <p><b>{% translate "Detail: " %}</b>    <br>{{ product.detail }}</p>
+                        <p><b>{% translate "Info" %}: </b> <br>{{ product.detail }}</p>
                     </div>
                 </div>
             </div>
