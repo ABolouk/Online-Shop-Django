@@ -80,7 +80,7 @@ JAZZMIN_SETTINGS = {
         "product.Category": "fa fa-bars",
         "product.OffCode": "fa fa-code",
         "product.Discount": "fa fa-percent",
-        "product.Product": "fa fa-product-hunt",
+        "product.Product": "fa fa-shopping-bag",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
