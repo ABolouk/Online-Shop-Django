@@ -1,0 +1,15 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Edit Address" %}{% endblock %}
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+    <input type="submit" class="btn btn-primary" value="{% translate "Edit" %}">
+    </form>
+{% endblock %}

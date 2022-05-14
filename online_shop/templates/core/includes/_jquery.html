@@ -1,0 +1,95 @@
+{% load i18n %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    function AddToCart(elem) {
+        let product_id = $(elem).parent().parent().parent().parent().attr('id')
+        let number = $(elem).parent().find('.item-number').val()
+        console.log(product_id, number)
+        $.ajax({
+                url: '{% url "product:add_to_cart" %}',
+                type: 'GET',
+                data: {
+                    'product_id': product_id,
+                    'number': number,
+                },
+                success: function (result) {
+                    console.log(number + ' ' + result['name'] + 'added to cart.')
+                    updateCart()
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
+    }
+
+    function updateCart() {
+        $.ajax({
+                url: '{% url "product:get_cart" %}',
+                type: 'GET',
+                data: {},
+                success: function (result) {
+                    console.log(result)
+                    let row
+                    let cart_html = ''
+                    Object.keys(result).forEach(key => {
+                        let product = result[key]
+                        let delete_button = '<a href="#" id="delete-' + key + '" onclick="deleteFromCart(this)" class="ms-1 btn btn-danger">{% translate "Del" %}</a>'
+                        row = '<li class="dropdown-item">' + product.number + ' of ' + product.name + delete_button + '</li>'
+                        cart_html = cart_html + row
+                    })
+                    if (cart_html === '') {
+                        cart_html = '<li class="dropdown-item">{% translate "Cart is empty." %}</li>'
+                    }
+                    cart_html = cart_html + '<li><hr class="dropdown-divider"></li><li><a class="dropdown-item text-center bg-warning rounded" href="{% url "cart" %}">{% translate "Pay" %}</a></li>'
+                    $("#cart-ul").html(cart_html)
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
+    }
+
+    function deleteFromCart(elem) {
+        let product_id = $(elem).attr("id").slice(7)
+        $.ajax({
+                url: '{% url "product:delete_from_cart" %}',
+                type: 'GET',
+                data: {
+                    "product_id": product_id
+                },
+                success: function (result) {
+                    alert(result['msg'])
+                    updateCart()
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
+        if ($('.li-item').length) {
+            $('#' + product_id).remove()
+        }
+    }
+
+    function addressChange(elem) {
+        let address_id = $(elem).attr("id").slice(8)
+        $.ajax({
+                url: '{% url "order:address_change" %}',
+                type: 'GET',
+                data: {
+                    "address_id": address_id
+                },
+                success: function (result) {
+                    alert(result['msg'])
+                },
+                error: function () {
+                    console.log('Error!')
+                }
+            }
+        )
+    }
+</script>

@@ -1,0 +1,44 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Online Shop" %}{% endblock %}
+{% block extera_css %}
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {% if category_tab %}
+            <div class="row">
+                {# category #}
+                <p>{% translate "Category" %}:
+                    <a href="{% url "product:category" category_tab.parent.id %}">{{ category_tab.parent }}</a>
+                    {% if category_tab.child %}
+                        /
+                        <a href="{% url "product:category" category_tab.child.id %}">{{ category_tab.child }}</a>
+                    {% endif %}
+                </p>
+            </div>
+        {% endif %}
+        {% if the_brand %}
+            <div class="row">
+                {# category #}
+                <p>{% translate "Brand" %}:
+                    <a href="{% url "product:brand" the_brand.id %}">{{ the_brand }}</a>
+                </p>
+            </div>
+        {% endif %}
+        <div class="row justify-content-start">
+            {% for product in products %}
+                {% include "core/includes/product_home_view.html" with product=product %}
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

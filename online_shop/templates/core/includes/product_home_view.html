@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<div id="{{ product.id }}" class="card col-md-3 col-5 p-1 text-center" style="background: #ededed">
+    <a href="{% url "product:detail" product.id %}" style="text-decoration: None;">
+        <img style="object-fit: cover; height: 14rem;" src="{{ product.image.url }}" class="card-img-top"
+             alt="product-{{ product.id }}"></a>
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        {#        <p class="card-text">{{ product.detail|truncatechars:20 }}</p>#}
+        {% if product.discount %}
+            <h6 style="color: red">{{ product.discount.amount }}{% if product.discount.type == "PER" %}%{% else %}
+                {% translate "Toman" %}{% endif %}{% translate " Off" %}</h6>
+            <del><h6 class="card-text">{{ product.price }} {% translate "Toman" %}</h6></del>
+            <h5 class="card-text">{{ product.final_price }} {% translate "Toman" %}</h5>
+        {% else %}
+            <h5 class="card-text">{{ product.price }} {% translate "Toman" %}</h5>
+        {% endif %}
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                {# <a href="#" class="col-auto btn btn-outline-danger">{% translate "-" %}</a>#}
+                 <input class="col-md-4 col-auto text-center item-number" type="number" min="0" value="1">
+                <div class="col-auto btn btn-outline-success" onclick="AddToCart(this)">{% translate "Add" %}</div>
+
+                <a href="{% url "product:detail" product.id %}"
+                   class="col-auto btn btn-info ms-2">{% translate "Info" %}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Login Customer" %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card w-auto m-1 align-items-center">
+                <form method="POST" action="{% url "login-customer" %}">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                    </table>
+                    <input class="btn btn-primary w-100" type="submit" value="{% translate "login" %}">
+                    <hr>
+                    <p>
+                        {% translate "Not a member? " %}
+                        <a href="{% url "register-customer" %}">{% translate "Register" %}</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

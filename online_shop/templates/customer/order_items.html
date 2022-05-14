@@ -1,0 +1,30 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Order " %}{{ order.id }}{% translate "itmes" %}{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <p>{% translate "Address: " %}{{ order.address }}</p>
+            <div class="card w-auto m-1 align-items-center">
+                <p class="mt-2">Items:</p>
+                <ul class="list-group list-group-flush">
+                    {% for order_item in order.orderitem_set.all %}
+                        <li class="list-group-item">
+                            {{ order_item.number }}{% translate " of " %}{{ order_item.product }}</li>
+                    {% endfor %}
+                    <li class="list-group-item">{% translate "Price:" %} <b>{{ order.total_price }}</b></li>
+                    <li class="list-group-item">
+                        {% if order.is_paid %}
+                            <a class="btn btn-success w-100 disabled" href="#">Paid</a>
+                        {% else %}
+                            <a class="btn btn-danger w-100" href="#">Pay</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

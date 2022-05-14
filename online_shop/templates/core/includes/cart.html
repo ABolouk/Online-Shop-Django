@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        {% translate "Cart" %}
+    </button>
+    <ul class="dropdown-menu" id="cart-ul">
+        {% if request.session.cart %}
+            {% for product_id, product in request.session.cart.items %}
+                <li class="dropdown-item">{{ product.number }} of {{ product.name }}
+                    <a href="#" id="delete-{{ product_id }}" onclick="deleteFromCart(this)"
+                       class="ms-1 btn btn-danger">{% translate "Del" %}</a></li>
+            {% endfor %}
+        {% else %}
+            <li class="dropdown-item">{% translate "Cart is empty." %}</li>
+        {% endif %}
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item text-center bg-warning rounded" href="{% url "cart" %}">{% translate "Pay" %}</a></li>
+    </ul>
+</div>

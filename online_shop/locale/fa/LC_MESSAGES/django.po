@@ -1,0 +1,549 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-07 22:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: core/apps.py:8
+msgid "Core"
+msgstr "هسته"
+
+#: core/forms.py:24
+msgid "Phone"
+msgstr "تلفن"
+
+#: core/forms.py:25 customer/forms.py:31
+#, fuzzy
+#| msgid "Change password"
+msgid "Password"
+msgstr "تغییر رمز"
+
+#: core/views.py:60
+msgid "Phone or password is incorrect."
+msgstr "شماره تلفن یا رمز نادرست است."
+
+#: core/views.py:72
+msgid "User logged out successfully."
+msgstr "کاربر با موفقیت خارج شد."
+
+#: customer/apps.py:8 customer/models.py:22
+msgid "Customer"
+msgstr "مشتری"
+
+#: customer/forms.py:16 customer/forms.py:57
+msgid "First Name"
+msgstr "نام"
+
+#: customer/forms.py:17 customer/forms.py:58
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: customer/forms.py:30 customer/forms.py:59
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+#: customer/forms.py:32
+#, fuzzy
+#| msgid "Change password"
+msgid "Confirm Password"
+msgstr "تغییر رمز"
+
+#: customer/forms.py:36
+msgid "Example: 09123456789"
+msgstr "مثال: ۰۹۱۲۳۴۵۶۷۸۹"
+
+#: customer/forms.py:47
+msgid "Passwords does not match."
+msgstr "رمزها با یکدیگر همخوانی ندارند."
+
+#: customer/forms.py:60
+#, fuzzy
+#| msgid "Email: "
+msgid "Email"
+msgstr "ایمیل: "
+
+#: customer/forms.py:69
+#, fuzzy
+#| msgid "Change password"
+msgid "New Password"
+msgstr "تغییر رمز"
+
+#: customer/models.py:23
+msgid "Customers"
+msgstr "مشتریان"
+
+#: customer/models.py:42
+msgid "Address"
+msgstr "آدرس"
+
+#: customer/models.py:43 templates/core/includes/navbar.html:79
+#: templates/home/cart_home.html:55
+msgid "Addresses"
+msgstr "آدرس‌ها"
+
+#: customer/views.py:125
+msgid "Password changed successfully."
+msgstr "رمز با موفقیت تغییر یافت"
+
+#: customer/views.py:132
+msgid "Enter a valid password."
+msgstr "یک رمز درست وارد کنید."
+
+#: customer/views.py:149
+msgid "Address successfully added."
+msgstr "آدرس با موفقیت اضافه شد."
+
+#: customer/views.py:167
+#, fuzzy
+#| msgid "Addresses"
+msgid "Address Deleted."
+msgstr "آدرس‌ها"
+
+#: online_shop/settings.py:16 templates/core/includes/navbar.html:9
+#: templates/product/home.html:6
+msgid "Online Shop"
+msgstr "فروشگاه آنلاین"
+
+#: online_shop/settings.py:30
+msgid "Amirhossein Bolouk Asli"
+msgstr "امیرحسین بلوک اصلی"
+
+#: order/apps.py:8 order/models.py:30
+msgid "Order"
+msgstr "سفارش"
+
+#: order/models.py:31 templates/core/includes/navbar.html:81
+msgid "Orders"
+msgstr "سفارش‌ها"
+
+#: order/models.py:46
+msgid "Order Item"
+msgstr "آیتم سفارش"
+
+#: order/models.py:47
+msgid "Order Items"
+msgstr "آیتم‌های سفارش"
+
+#: order/views.py:19
+#, fuzzy
+#| msgid "Address successfully added."
+msgid "Address successfully changed."
+msgstr "آدرس با موفقیت تغییر پیدا کرد."
+
+#: product/api_views.py:66
+msgid "Product deleted from cart."
+msgstr "محصول از سبد خرید حذف شد."
+
+#: product/apps.py:8 product/models.py:105
+msgid "Product"
+msgstr "محصول"
+
+#: product/models.py:17
+msgid "Percentage Discount"
+msgstr "تخفیف درصدی"
+
+#: product/models.py:18
+msgid "Value Discount"
+msgstr "تخفیف مقداری"
+
+#: product/models.py:32
+msgid "A name for discount."
+msgstr "نامی برای تخفیف."
+
+#: product/models.py:35
+msgid "Discount"
+msgstr "تخفیف"
+
+#: product/models.py:36
+msgid "Discounts"
+msgstr "تخفیف‌ها"
+
+#: product/models.py:40
+msgid "Code that validates the discount."
+msgstr "کدی که برای شناسایی تخفیف استفاده می‌شود."
+
+#: product/models.py:43
+msgid "Discount Code"
+msgstr "کد تخفیف"
+
+#: product/models.py:44
+msgid "Discount Codes"
+msgstr "کدهای تخفیف"
+
+#: product/models.py:52
+msgid "You can add this category under another one."
+msgstr "می‌توانید این دسته‌بندی را زیرمجموعه دسته‌بندی دیگری قرار دهید."
+
+#: product/models.py:73 templates/product/home.html:20
+#: templates/product/product_detail_view.html:25
+msgid "Category"
+msgstr "دسته‌بندی"
+
+#: product/models.py:74 templates/core/includes/navbar.html:27
+msgid "Categories"
+msgstr "دسته‌بندی‌ها"
+
+#: product/models.py:84 templates/product/home.html:32
+#: templates/product/product_detail_view.html:47
+msgid "Brand"
+msgstr "برند"
+
+#: product/models.py:85 templates/core/includes/navbar.html:50
+msgid "Brands"
+msgstr "برندها"
+
+#: product/models.py:106
+msgid "Products"
+msgstr "محصولات"
+
+#: templates/admin/base.html:95
+msgid "Search"
+msgstr "جستجو"
+
+#: templates/admin/base.html:155
+#, fuzzy
+#| msgid "Discount"
+msgid "Account"
+msgstr "تخفیف"
+
+#: templates/admin/base.html:158
+msgid "Change password"
+msgstr "تغییر رمز"
+
+#: templates/admin/base.html:162
+msgid "Log out"
+msgstr "خارج شدن"
+
+#: templates/admin/base.html:173
+msgid "See Profile"
+msgstr "دیدن پروفایل"
+
+#: templates/admin/base.html:213
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: templates/admin/base.html:326
+msgid "Jazzmin version"
+msgstr "ورژن جزمین"
+
+#: templates/admin/base.html:329
+msgid "Copyright"
+msgstr "کپی رایت"
+
+#: templates/admin/base.html:329
+msgid "All rights reserved."
+msgstr "تمامی حقوق محفوض است."
+
+#: templates/admin/base.html:345
+msgid "UI Configuration"
+msgstr "تنظیم رابط کاربری"
+
+#: templates/admin/base.html:349
+msgid "Copy this info your settings file to persist these UI changes"
+msgstr "این را در فایل ستینگ کپی کنید تا تغییرات اعمال شده نهایی شود."
+
+#: templates/admin/base.html:353
+msgid "Close"
+msgstr "بستن"
+
+#: templates/core/customer_register.html:5
+#, fuzzy
+#| msgid "Customer"
+msgid "Register Customer"
+msgstr "مشتری"
+
+#: templates/core/customer_register.html:16
+#: templates/core/includes/navbar.html:88 templates/core/login_customer.html:20
+msgid "Register"
+msgstr "ثبت نام"
+
+#: templates/core/customer_register.html:19
+msgid "Already a member? "
+msgstr "ثبت نام کرده بودید؟"
+
+#: templates/core/customer_register.html:20
+#: templates/core/includes/navbar.html:90
+#, fuzzy
+#| msgid "login"
+msgid "Login"
+msgstr "ورود"
+
+#: templates/core/includes/_jquery.html:39 templates/core/includes/cart.html:12
+#, fuzzy
+#| msgid "Delete"
+msgid "Del"
+msgstr "پاک"
+
+#: templates/core/includes/_jquery.html:44 templates/core/includes/cart.html:15
+msgid "Cart is empty."
+msgstr "سبد خرید خالی است."
+
+#: templates/core/includes/_jquery.html:46 templates/core/includes/cart.html:20
+#: templates/customer/customer_order_history.html:30
+#: templates/home/cart_home.html:78
+msgid "Pay"
+msgstr "پرداخت"
+
+#: templates/core/includes/cart.html:5
+msgid "Cart"
+msgstr "سبد خرید"
+
+#: templates/core/includes/navbar.html:21
+msgid "Home"
+msgstr "خانه"
+
+#: templates/core/includes/navbar.html:74
+#, fuzzy
+#| msgid "See Profile"
+msgid "My Profile"
+msgstr "پروفایل من"
+
+#: templates/core/includes/navbar.html:83
+msgid "Logout"
+msgstr "خروج"
+
+#: templates/core/includes/product_home_view.html:12
+#: templates/core/includes/product_home_view.html:13
+#: templates/core/includes/product_home_view.html:14
+#: templates/core/includes/product_home_view.html:16
+#: templates/home/cart_home.html:28 templates/home/cart_home.html:31
+#: templates/home/cart_home.html:32 templates/home/cart_home.html:34
+#: templates/home/cart_home.html:73
+#: templates/product/product_detail_view.html:54
+#: templates/product/product_detail_view.html:55
+#: templates/product/product_detail_view.html:56
+#: templates/product/product_detail_view.html:58
+msgid "Toman"
+msgstr "تومان"
+
+#: templates/core/includes/product_home_view.html:12
+#: templates/home/cart_home.html:31
+#: templates/product/product_detail_view.html:54
+msgid " Off"
+msgstr " تخفیف"
+
+#: templates/core/includes/product_home_view.html:22
+#: templates/customer/add_address.html:13
+#: templates/product/product_detail_view.html:65
+#, fuzzy
+#| msgid "Address"
+msgid "Add"
+msgstr "اضافه کردن"
+
+#: templates/core/includes/product_home_view.html:25
+#: templates/product/product_detail_view.html:68
+msgid "Info"
+msgstr "اطلاعات بیشتر"
+
+#: templates/core/login_customer.html:5
+#, fuzzy
+#| msgid "Customer"
+msgid "Login Customer"
+msgstr "ورود مشتری"
+
+#: templates/core/login_customer.html:16
+msgid "login"
+msgstr "ورود"
+
+#: templates/core/login_customer.html:19
+msgid "Not a member? "
+msgstr "عضو نشده‌اید؟"
+
+#: templates/customer/add_address.html:6
+#: templates/customer/customer_address.html:8
+#, fuzzy
+#| msgid "Address"
+msgid "Add Address"
+msgstr "آدرس"
+
+#: templates/customer/change_password.html:6
+#, fuzzy
+#| msgid "Change password"
+msgid "Change Password"
+msgstr "تغییر رمز"
+
+#: templates/customer/customer_address.html:6
+#, fuzzy
+#| msgid "Addresses"
+msgid "Customer Addresses"
+msgstr "آدرس‌ها"
+
+#: templates/customer/customer_address.html:16
+#: templates/customer/edit_address.html:13
+msgid "Edit"
+msgstr "تغییر"
+
+#: templates/customer/customer_address.html:17
+msgid "Delete"
+msgstr "پاک کردن"
+
+#: templates/customer/customer_order_history.html:6
+msgid "Customer Order History"
+msgstr "تاریخچه سفارشات مشتری"
+
+#: templates/customer/customer_order_history.html:25
+msgid "to: "
+msgstr "به: "
+
+#: templates/customer/customer_order_history.html:26
+#: templates/customer/order_items.html:18
+#: templates/product/product_detail_view.html:50
+msgid "Price:"
+msgstr "قیمت:"
+
+#: templates/customer/customer_order_history.html:28
+#, fuzzy
+#| msgid "Paid: "
+msgid "Paid"
+msgstr "پرداخت شده"
+
+#: templates/customer/customer_profile.html:6
+#, fuzzy
+#| msgid "Customer"
+msgid "Customer Profile"
+msgstr "مشتری"
+
+#: templates/customer/customer_profile.html:12
+msgid "First Name: "
+msgstr "نام: "
+
+#: templates/customer/customer_profile.html:13
+msgid "Last Name: "
+msgstr "نام خانوادگی: "
+
+#: templates/customer/customer_profile.html:14
+msgid "Phone Number: "
+msgstr "شماره تلفن: "
+
+#: templates/customer/customer_profile.html:15
+msgid "Email: "
+msgstr "ایمیل: "
+
+#: templates/customer/customer_profile.html:17
+#, fuzzy
+#| msgid "See Profile"
+msgid "Edit Profile"
+msgstr "دیدن پروفایل"
+
+#: templates/customer/customer_update.html:6
+#, fuzzy
+#| msgid "Customer"
+msgid "Customer Profile Update"
+msgstr "مشتری"
+
+#: templates/customer/edit_address.html:6
+#, fuzzy
+#| msgid "Address"
+msgid "Edit Address"
+msgstr "آدرس"
+
+#: templates/customer/order_items.html:6
+#, fuzzy
+#| msgid "Order"
+msgid "Order "
+msgstr "سفارش"
+
+#: templates/customer/order_items.html:6
+msgid "itmes"
+msgstr "اقلام"
+
+#: templates/customer/order_items.html:10
+#, fuzzy
+#| msgid "Address"
+msgid "Address: "
+msgstr "آدرس"
+
+#: templates/customer/order_items.html:16
+msgid " of "
+msgstr " از "
+
+#: templates/home/cart_home.html:24
+msgid "x"
+msgstr ""
+
+#: templates/home/cart_home.html:25
+#, fuzzy
+#| msgid "Price:"
+msgid "Price"
+msgstr "قیمت:"
+
+#: templates/home/cart_home.html:73
+msgid "Final Price"
+msgstr "قیمت نهایی"
+
+#: templates/home/cart_home.html:81
+#, fuzzy
+#| msgid "Online Shop"
+msgid "Online"
+msgstr "آنلاین"
+
+#: templates/home/cart_home.html:82
+msgid "On Location"
+msgstr "در محل"
+
+#: templates/home/close_successful.html:8 templates/home/pay_successful.html:9
+msgid "Thank you for your purchase."
+msgstr "از خرید شما ممنونیم."
+
+#: templates/home/close_successful.html:9 templates/home/pay_successful.html:10
+#, fuzzy
+#| msgid "Online Shop"
+msgid "Back to Online-Shop"
+msgstr "بازگشت به فروشگاه آنلاین"
+
+#: templates/home/pay_successful.html:8
+#, fuzzy
+#| msgid "Password changed successfully."
+msgid "Your order has been successfully paid."
+msgstr "سفارش شما با موفقیت پرداخت شد."
+
+#~ msgid "Off Code"
+#~ msgstr "کد تخفیف"
+
+#~ msgid "Use"
+#~ msgstr "استفاده"
+
+#, fuzzy
+#~| msgid "Category"
+#~ msgid "Category: "
+#~ msgstr "دسته‌بندی"
+
+#, fuzzy
+#~| msgid "Brand"
+#~ msgid "Brand: "
+#~ msgstr "برند: "
+
+#, fuzzy
+#~| msgid "Email: "
+#~ msgid "Detail: "
+#~ msgstr "جزئیات: "
+
+#, fuzzy
+#~| msgid "Price:"
+#~ msgid "Price: "
+#~ msgstr "قیمت: "
+
+#, fuzzy
+#~| msgid "Dashboard"
+#~ msgid " to dashboard"
+#~ msgstr "داشبورد"
+
+#~ msgid "Welcome,"
+#~ msgstr "خوش آمدید،"
+
+#~ msgid "Documentation"
+#~ msgstr "مستندسازی"

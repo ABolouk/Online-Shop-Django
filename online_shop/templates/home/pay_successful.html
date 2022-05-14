@@ -1,0 +1,13 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <div class="container m-0 justify-content-center">
+    <div class="row m-0 ">
+        <h1>{% translate "Your order has been successfully paid." %}</h1>
+        <h2>{% translate "Thank you for your purchase." %}</h2>
+        <a href="{% url "home:home" %}" class="btn btn-primary">{% translate "Back to Online-Shop" %}</a>
+    </div>
+    </div>
+{% endblock %}
